@@ -8,7 +8,7 @@ module.exports = {
         }
         else
         {
-            message.reply("```"
+            message.channel.send("```"
                 + (eval(message.content) + "```"));
         };
 	},
