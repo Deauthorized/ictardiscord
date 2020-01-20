@@ -8,9 +8,8 @@ module.exports = {
         }
         else
         {
-            const evil = eval(message.content);
             message.reply("```"
-                + (evil + "```"));
+                + (eval(message.content) + "```"));
         };
 	},
 };
