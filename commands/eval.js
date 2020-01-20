@@ -8,9 +8,9 @@ module.exports = {
         }
         else
         {
-            eval = eval(message.content);
+            const evil = eval(message.content);
             message.reply("```"
-                + (eval + "```"));
+                + (evil + "```"));
         };
 	},
 };
