@@ -1,0 +1,19 @@
+{
+  "name": "deauthorizedbot",
+  "version": "1.0.0",
+  "description": "ictar",
+  "main": "ictar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "d-9b9t-bot"
+  },
+  "author": "deauthorized",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "*",
+    "request": "*"
+  }
+}
