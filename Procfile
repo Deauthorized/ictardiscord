@@ -1,1 +1,1 @@
-worker: wrapper.sh
+worker: bash wrapper.sh
