@@ -9,7 +9,7 @@ module.exports = {
         else
         {
             channel = args[0]
-            if (message.channel.guild !== channel.guild){
+            if (message.channel.guild !== client.channels.get(channel).guild){
                 message.reply("You can't send messages across discord servers.")
             }
             else
