@@ -9,9 +9,8 @@ module.exports = {
         }
         else
         {
-            message.reply("Restarting.");
-            client.user.setPresence({ game: { name: 'brb', type: "idle"}});
-            sleep(500)
+            await message.reply("Restarting.");
+            await client.user.setPresence({ game: { name: 'brb', type: "idle"}});
             process.exit();
         }
 	},
