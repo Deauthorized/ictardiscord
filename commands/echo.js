@@ -10,7 +10,7 @@ module.exports = {
         {
             channel = args[0]
             msge = args.splice(1, args.length).join(" ")
-            message.reply(msge)
+            client.channels.get(channel).send(msge)
         }
 	},
 };
