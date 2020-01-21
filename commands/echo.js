@@ -15,7 +15,7 @@ module.exports = {
             {
                 channel = args[0]
                 msge = args.splice(1, args.length).join(" ")
-                channel = client.channels.get(channel)
+                chnl = client.channels.get(channel).say(msge)
             }
         }
 	},
