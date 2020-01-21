@@ -10,7 +10,7 @@ module.exports = {
         else
         {
             await message.reply("Restarting.");
-            await client.user.setStatus(idle, "brb");
+            await client.user.setStatus('idle', 'brb');
             process.exit();
         }
 	},
