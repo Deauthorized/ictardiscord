@@ -1,6 +1,6 @@
 module.exports = {
-	name: 'ping',
-	description: 'check connection to discords websocket in ms',
+	name: 'echo',
+	description: 'echos whatever you say into a channel, usage: =echo <channel-id> <message>',
 	execute(message, args, client) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
