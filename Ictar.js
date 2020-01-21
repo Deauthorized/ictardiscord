@@ -10,7 +10,7 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 console.log("Loading config");
-const { prefix, token, botmaster } = require('./config.json');
+const { prefix, botmaster } = require('./config.json');
 console.log("Config loaded"
     + ("\n\nPrefix: " + prefix));
 console.log("\nConnecting to discord...")
@@ -47,4 +47,4 @@ client.on('message', message =>
 })
 
 
-client.login(token)
+client.login(process.env.TOKEN)
