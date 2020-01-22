@@ -6,10 +6,11 @@ module.exports = {
         var answers = ["sure why not", "go ahead", "yeah", "true", "idk", "probably", "not sure tbh", "uhhh", "naw", "just dont", "shouldnt do that", "no"];
         var answer = answers[Math.floor(Math.random() * answers.length)];
 
-        ballmsg = message.reply(":8ball: Contacting Corbenic for an answer.")
-        sleep(2500)
-        ballmsg.edit(":8ball: A reply has been recieved"
+        message.reply(":8ball: Contacting Corbenic for an answer.").then((msg) =>
+        {
+            sleep(2500)
+            msg.edit(content=":8ball: A reply has been recieved"
             + (`\n\`\`\`${answer}\`\`\``));
-
+        })
 	},
 };
