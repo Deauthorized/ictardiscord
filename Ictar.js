@@ -7,16 +7,30 @@ console.log("Loading commands");
 const commandFiles = fs.readdirSync(__dirname + '/commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-    console.log(`Loaded ${file}`);
-	client.commands.set(command.name, command);
+    try
+    {
+	    const command = require(`./commands/${file}`);
+        client.commands.set(command.name, command);
+        console.log(`Loaded ${file}`);
+    }
+    catch (error)
+    {
+        console.log(`ERROR: Failed to load ${file}!: ${error}`);
+    }
 }
 console.log("Loading events");
 for (const file of eventFiles) {
-	const command = require(`./events/${file}`);
-    console.log(`Loaded ${file}`);
-    client.events.set(command.name, command);
-    client.events.get(command.name).execute(client);
+    try
+    {
+	    const command = require(`./events/${file}`);
+        client.events.set(command.name, command);
+        client.events.get(command.name).execute(client);
+        console.log(`Loaded ${file}`);
+    }
+    catch (error)
+    {
+        console.log(`ERROR: Failed to load ${file}!: ${error}`);
+    }
 }
 console.log("Loading config");
 const { prefix, botmaster } = require('./config.json');
@@ -38,9 +52,12 @@ client.on('message', message =>
 	const command = args.shift().toLowerCase();
     if (!client.commands.has(command)) return;
 
-    try {
+    try 
+    {
         client.commands.get(command).execute(message, args, client, botmaster);
-    } catch (error) {
+    }
+    catch (error)
+    {
         console.error(error);
         message.reply('Could not complete execution.'
             + ("```\n" + error + "\n```"));
