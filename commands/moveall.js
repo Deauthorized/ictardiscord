@@ -14,7 +14,7 @@ module.exports = {
             }
             else
             {
-                message.reply(`Moving everyone to #${toChannel.name}`);
+                msage = await message.reply(`Moving everyone to #${toChannel.name}`);
                 message.guild.channels.forEach(element =>
                 {
                     if (element.type == "voice")
@@ -24,6 +24,7 @@ module.exports = {
                         });
                     }
                 });
+                await msage.edit(`Moved everyone to #${toChannel.name}`);
             }
         }
 	},
