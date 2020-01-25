@@ -1,3 +1,4 @@
+var _eval = require('eval');
 module.exports = {
 	name: 'eval',
 	description: 'basic eval command',
@@ -7,9 +8,9 @@ module.exports = {
             message.reply("You can't do this.");
         }
         else
-        {
-            message.channel.send("```"
-                + (eval(message.content) + "```"));
+        {   
+            evald = _eval(message);
+            message.reply("```javascript\n" + evald + "\n```");
         };
 	},
 };
