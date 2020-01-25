@@ -6,7 +6,7 @@ module.exports = {
         const helpEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setTitle(`${client.commands.size} commands`)
-            .setAuthor('Ictar', client.user.avatar, 'https://discord.js.org')
+            .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
         client.commands.forEach(element => {
             helpEmbed.addField(`=${element.name}`, `${element.description}`, true);
         });
