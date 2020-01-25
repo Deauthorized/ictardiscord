@@ -4,7 +4,7 @@ module.exports = {
 	description: 'gets current cmds',
 	execute(message, args, client) {
         const helpEmbed = new Discord.RichEmbed()
-            .setColor('#0099ff')
+            .setColor('#8527ce')
             .setTitle(`${client.commands.size} commands`)
             .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
         client.commands.forEach(element => {
