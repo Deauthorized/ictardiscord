@@ -14,17 +14,20 @@ module.exports = {
             }
             else
             {
-                msage = await message.reply(`Moving everyone to #${toChannel.name}`);
+                var movecount = 0
+                msage = await message.reply(`Moving everyone to :speaker:${toChannel.name}`);
                 message.guild.channels.forEach(element =>
                 {
                     if (element.type == "voice")
                     {
-                        element.members.forEach(element => {
+                        element.members.forEach(element =>
+                        {
                             element.setVoiceChannel(toChannel);
+                            movecount += 1 
                         });
                     }
                 });
-                await msage.edit(`<@${message.author.id}>, Moved everyone to #${toChannel.name}`);
+                await msage.edit(`<@${message.author.id}>, Moved ${movecount} user(s) to :speaker:${toChannel.name}`);
             }
         }
 	},
