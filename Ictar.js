@@ -11,7 +11,6 @@ for (const file of commandFiles) {
     {
 	    const command = require(`./commands/${file}`);
         client.commands.set(command.name, command);
-        console.log(`Loaded ${file}`);
     }
     catch (error)
     {
@@ -25,7 +24,6 @@ for (const file of eventFiles) {
 	    const command = require(`./events/${file}`);
         client.events.set(command.name, command);
         client.events.get(command.name).execute(client);
-        console.log(`Loaded ${file}`);
     }
     catch (error)
     {
@@ -53,8 +51,15 @@ client.on('message', message =>
     if (!client.commands.has(command)) return;
 
     try 
-    {
-        client.commands.get(command).execute(message, args, client, botmaster);
+    {   
+        if (message.channel.type == "dm")
+        {
+            message.reply("DM commands are not supported.")
+        }
+        else
+        {
+            client.commands.get(command).execute(message, args, client, botmaster);
+        }
     }
     catch (error)
     {
