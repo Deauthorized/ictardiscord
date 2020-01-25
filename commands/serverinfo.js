@@ -4,9 +4,9 @@ module.exports = {
 	description: 'complex info about the server you\'re in',
 	execute(message, args, client) {
         var onlineCount = message.guild.members.filter(m => m.presence.status === 'online').size
-        var offlineCount = guild.members.filter(m => m.presence.status === 'offline').size
-        var idleCount = guild.members.filter(m => m.presence.status === 'idle').size
-        var dndCount = guild.members.filter(m => m.presence.status === 'dnd').size
+        var offlineCount = message.guild.members.filter(m => m.presence.status === 'offline').size
+        var idleCount = message.guild.members.filter(m => m.presence.status === 'idle').size
+        var dndCount = message.guild.members.filter(m => m.presence.status === 'dnd').size
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
             .setTitle(`Server info`)
