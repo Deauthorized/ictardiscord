@@ -12,6 +12,10 @@ module.exports = {
             if (message.channel.guild !== toChannel.guild){
                 message.reply("Cross server commands are disallowed.");
             }
+            else if (toChannel.type != "voice")
+            {
+                message.reply("Specified channel is not a voice channel")
+            }
             else
             {
                 var movecount = 0
