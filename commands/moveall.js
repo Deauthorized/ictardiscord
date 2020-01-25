@@ -24,7 +24,7 @@ module.exports = {
                         });
                     }
                 });
-                await msage.edit(`Moved everyone to #${toChannel.name}`);
+                await msage.edit(`<@${message.author.id}>, Moved everyone to #${toChannel.name}`);
             }
         }
 	},
