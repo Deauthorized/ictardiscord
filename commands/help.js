@@ -8,7 +8,7 @@ module.exports = {
             .setTitle(`${client.commands.size} commands`)
             .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
         client.commands.forEach(element => {
-            helpEmbed.addField(`=${element.name}`, `${element.description}`, true);
+            helpEmbed.addField(`=${element.name}`, `${element.description}`);
         });
         message.channel.send(helpEmbed);
 	},
