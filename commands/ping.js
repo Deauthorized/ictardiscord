@@ -1,8 +1,7 @@
 module.exports = {
-    ping: null,
 	name: 'ping',
-	description: 'check connection to discords websocket in ms',
+	description: 'check latency of discords websocket',
 	execute(message, args, client) {
-		message.channel.send('Pong! Discord websocket responded in ' + client.ping + "ms");
+		message.channel.send("Pong! '" + str(client.ping).substring(0, 6) + "ms'");
 	},
 };
