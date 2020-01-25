@@ -1,3 +1,4 @@
+var _eval = require('eval');
 module.exports = {
 	name: 'eval',
 	description: 'basic eval command',
@@ -8,7 +9,7 @@ module.exports = {
         }
         else
         {   
-            evald = client.shard.eval(message.content)
+            evald = _eval(message.content)
             message.reply("```javascript\n" + evald + "\n```");
         };
 	},
