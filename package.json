@@ -15,6 +15,7 @@
   "dependencies": {
     "discord.js": "*",
     "request": "*",
-    "system-sleep": "*"
+    "system-sleep": "*",
+    "eval": "*"
   }
 }
