@@ -7,8 +7,9 @@ module.exports = {
             message.reply("You can't do this.");
         }
         else
-        {   )
-            message.reply("```javascript\n" + client.shard.eval(message.content) + "\n```");
+        {   
+            evald = client.shard.eval(message.content)
+            message.reply("```javascript\n" + evald + "\n```");
         };
 	},
 };
