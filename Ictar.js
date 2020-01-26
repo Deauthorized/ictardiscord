@@ -1,5 +1,8 @@
 const fs = require('fs');
 const Discord = require('discord.js');
+const db = require('better-sqlite3');
+const dbp = require('better-sqlite-pool');
+const Enmap = require("enmap");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
@@ -34,10 +37,25 @@ console.log("Loading config");
 const { prefix, botmaster } = require('./config.json');
 console.log("Config loaded"
     + ("\n\nPrefix: " + prefix));
+console.log("Loading server specific settings, may take a bit.")
+client.settings = new Enmap
+({
+    name: "settings",
+    fetchAll: false,
+    autoFetch: true,
+    cloneLevel: 'deep',
+    polling: true,
+    pollingInterval: "60000"
+});
+const defaultSettings = 
+{
+    prefix: "=",
+    guildDescription: "A very cool discord server!"
+}
 console.log("\nConnecting to discord...")
 client.on('ready', () => 
 {
-    console.log("Successfully connected to discord as " + client.user.tag)
+    console.log("Connected as " + client.user.tag)
 
     client.user.setPresence({ game: { name: `your consciousness to shard ${client.shard.id}`, type: "streaming", url: "https://www.twitch.tv/dashrava"}});
 })
@@ -45,10 +63,11 @@ client.on('ready', () =>
 
 client.on('message', message =>
 {
-    if (!message.content.startsWith(prefix) || message.author.bot || client.user == message.author) return;
+    if (!message.content.startsWith(prefix) || message.author.bot || client.user == message.author || !message.guild) return;
     const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
     if (!client.commands.has(command)) return;
+    const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
 
     try 
     {   
@@ -58,7 +77,7 @@ client.on('message', message =>
         }
         else
         {
-            client.commands.get(command).execute(message, args, client, botmaster);
+            client.commands.get(command).execute(message, args, client, botmaster, guildConf);
         }
     }
     catch (error)
