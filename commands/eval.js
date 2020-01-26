@@ -9,7 +9,7 @@ module.exports = {
         }
         else
         {   
-            evald = _eval(message.content)
+            var evald = _eval(message.content)
             message.reply("```javascript\n" + evald + "\n```");
         };
 	},
