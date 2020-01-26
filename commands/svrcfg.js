@@ -1,7 +1,8 @@
+const Discord = require('discord.js');
 module.exports = {
-	  name: 'svrcfg',
-    description: 'server config command',
-    usage: '=svrcfg <optional:set> <key> <value>',
+	name: 'svrcfg',
+    	description: 'server config command',
+    	usage: '=svrcfg <optional:set> <key> <value>',
 	execute(message, args, client, botmaster, guildConf) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
