@@ -7,6 +7,7 @@ module.exports = {
         var offlineCount = message.guild.members.filter(m => m.presence.status === 'offline').size
         var idleCount = message.guild.members.filter(m => m.presence.status === 'idle').size
         var dndCount = message.guild.members.filter(m => m.presence.status === 'dnd').size
+        var txtchnCount = message.guild.channels.filter(m => m.channel.type === 'text').size
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
             .setTitle(`Server Info`)
@@ -19,7 +20,7 @@ module.exports = {
             .addField('Region', `${message.guild.region}`, true)
             .addField('Verified', `${message.guild.verified}`, true)
             .addField('Roles', `${message.guild.roles.size}`, true)
-            .addField('Channels', `${message.guild.channels.size}`, true)
+            .addField('Text Channels', `${txtchnCount}`, true)
             .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdAt}`);
         message.channel.send(infoEmbed);
 	},
