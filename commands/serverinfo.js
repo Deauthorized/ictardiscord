@@ -10,6 +10,7 @@ module.exports = {
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
             .setTitle(`Server Info`)
+            .setThumbnail(`${message.guild.iconURL}`)
             .setDescription(`${onlineCount + idleCount + dndCount} / ${message.guild.memberCount} members are currently logged in. \n ${onlineCount} members are online \n${idleCount} members are AFK \n${dndCount} are DND \n${offlineCount} are offline`)
             .setAuthor(`${message.guild.name} / ${message.guild.nameAcronym}`, message.guild.iconURL, 'https://discord.js.org')
             .addField('Server Description', `${message.guild.description}`)
