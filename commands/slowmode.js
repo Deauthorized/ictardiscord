@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'slowmode',
-	description: 'sets the channels slowmode value, use "off" to disable slowmode',
+    	description: 'sets the channels slowmode value',
+    	usage: '=slowmode <int|off>',
 	execute(message, args, client) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
