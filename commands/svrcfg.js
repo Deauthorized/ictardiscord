@@ -28,7 +28,7 @@ module.exports = {
                     return message.reply("Not a valid key.");
                 }
                 client.settings.set(message.guild.id, value.join(" "), prop)
-                message.reply(`Set value ${prop} to: \`${value.join(" ")}\` `)
+                message.reply(`Successfully changed config: \`${prop}\``)
             }
         }
 	},
