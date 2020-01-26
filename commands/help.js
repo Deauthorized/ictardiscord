@@ -20,11 +20,18 @@ module.exports = {
         {
             if (client.commands.has(args[0]))
             {
+                help = String();
+                client.commands.forEach(element => {
+                    if (element.name === args[0])
+                    {
+                        help += `${element.usage}`
+                    } 
+                });
                 const helpEmbed = new Discord.RichEmbed()
                     .setColor('#8527ce')
                     .setTitle(`=${args[0]}`)
                     .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
-                    .addField(`Usage for =${args[0]}`, `${client.commands.args[0].usage}`)
+                    .addField(`Usage for =${args[0]}`, `${help}`)
                 message.channel.send(helpEmbed);
             }
             else
