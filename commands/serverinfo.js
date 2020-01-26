@@ -7,12 +7,12 @@ module.exports = {
         var offlineCount = message.guild.members.filter(m => m.presence.status === 'offline').size
         var idleCount = message.guild.members.filter(m => m.presence.status === 'idle').size
         var dndCount = message.guild.members.filter(m => m.presence.status === 'dnd').size
-        var txtchnCount = message.guild.channels.filter(m => m.channel.type === 'text').size
+        var txtchnCount = message.guild.channels.filter(m => m.type === 'text').size
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
             .setTitle(`Server Info`)
             .setThumbnail(`${message.guild.iconURL}`)
-            .setDescription(`${onlineCount + idleCount + dndCount} / ${message.guild.memberCount} members are currently logged in. \n ${onlineCount} members are online \n${idleCount} members are AFK \n${dndCount} are DND \n${offlineCount} are offline`)
+            .addField('General Info', `${onlineCount + idleCount + dndCount} / ${message.guild.memberCount} members are currently logged in. \n ${onlineCount} members are online \n${idleCount} members are AFK \n${dndCount} are DND \n${offlineCount} are offline`)
             .setAuthor(`${message.guild.name} / ${message.guild.nameAcronym}`, message.guild.iconURL, 'https://discord.js.org')
             .addField('Server Description', `${message.guild.description}`)
             .addField('Members', `${message.guild.memberCount}`, true)
