@@ -16,6 +16,7 @@
     "discord.js": "*",
     "request": "*",
     "system-sleep": "*",
-    "eval": "*"
+    "eval": "*",
+    "pm2": "*"
   }
 }
