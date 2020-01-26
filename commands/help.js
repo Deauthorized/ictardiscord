@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'help',
-	description: 'gets current cmds',
+    	description: 'gets current cmds',
+    	usage: '=help <optional:command>',
 	execute(message, args, client) {
         if (args.length === 0)
         {
@@ -20,13 +21,7 @@ module.exports = {
         {
             if (client.commands.has(args[0]))
             {
-                help = String();
-                client.commands.forEach(element => {
-                    if (element.name === args[0])
-                    {
-                        help += `${element.usage}`
-                    } 
-                });
+                help = `${client.commands.get(args[0]).usage}`;
                 if (help === "undefined"){help = "No usage info is specified yet"}
                 const helpEmbed = new Discord.RichEmbed()
                     .setColor('#8527ce')
