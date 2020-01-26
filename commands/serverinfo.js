@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'serverinfo',
-	description: 'complex info about the server you\'re in',
+    description: 'complex info about the server you\'re in',
+    usage: '=serverinfo',
 	execute(message, args, client) {
         var onlineCount = message.guild.members.filter(m => m.presence.status === 'online').size
         var offlineCount = message.guild.members.filter(m => m.presence.status === 'offline').size
