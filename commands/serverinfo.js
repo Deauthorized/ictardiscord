@@ -9,10 +9,13 @@ module.exports = {
         var dndCount = message.guild.members.filter(m => m.presence.status === 'dnd').size
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
-            .setTitle(`Server info`)
+            .setTitle(`Server Info`)
             .setAuthor(`${message.guild.name}`, message.guild.iconURL, 'https://discord.js.org')
-            .addField('Members', `${message.guild.memberCount} / ${message.guild.maximumMembers}`, true)
+            .addField('Members', `${message.guild.memberCount}`, true)
             .addField('Member Presence', `${onlineCount + idleCount + dndCount} / ${message.guild.memberCount} are currently logged in. \n ${onlineCount} members are online \n${idleCount} members are AFK \n${dndCount} are on DND`, true)
+            .addField('Server Owner', `${message.guild.owner.user.tag}`, true)
+            .addField('Region', `${message.guild.region}`, true)
+            .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdTimeStamp}`);
         message.channel.send(infoEmbed);
 	},
 };
