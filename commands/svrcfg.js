@@ -22,8 +22,7 @@ module.exports = {
         {
             if (args[0] === "set")
             {
-                const [prop, ...value] = args;
-                console.log(prop);
+                const [none, prop, ...value] = args;
                 if(!client.settings.has(message.guild.id, prop))
                 {
                     return message.reply("Not a valid key.");
