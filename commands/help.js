@@ -29,7 +29,6 @@ module.exports = {
                 });
                 const helpEmbed = new Discord.RichEmbed()
                     .setColor('#8527ce')
-                    .setTitle(`=${args[0]}`)
                     .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
                     .addField(`Usage for =${args[0]}`, `${help}`)
                 message.channel.send(helpEmbed);
