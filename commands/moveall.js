@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'moveall',
-	description: 'moves everyone to a single voice channel',
+    	description: 'moves everyone to a single voice channel',
+    	usage: '=moveall <channel_id>',
 	async execute(message, args, client) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
