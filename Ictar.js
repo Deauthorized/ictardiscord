@@ -37,7 +37,7 @@ console.log("Config loaded"
 console.log("\nConnecting to discord...")
 client.on('ready', () => 
 {
-    console.log("Connected as " + client.user.tag)
+    console.log("Successfully connected to discord as " + client.user.tag)
 
     client.user.setPresence({ game: { name: `your consciousness to shard ${client.shard.id}`, type: "streaming", url: "https://www.twitch.tv/dashrava"}});
 })
