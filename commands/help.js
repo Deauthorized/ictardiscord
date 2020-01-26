@@ -25,6 +25,7 @@ module.exports = {
                     .setTitle(`=${args[0]}`)
                     .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
                     .addField(`Usage for =${args[0]}`, `${client.commands.args[0].usage}`)
+                message.channel.send(helpEmbed);
             }
             else
             {
