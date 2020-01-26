@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'echo',
-	description: 'echos whatever you say into a channel, usage: =echo <channel-id> <message>',
+    	description: 'echos whatever you say into a channel',
+    	usage: "=echo <channel_id> <message>",
 	execute(message, args, client) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
@@ -14,7 +15,7 @@ module.exports = {
             }
             else
             {
-                channel = args[0]
+                if (args[0] == undefined){channel = message.channel}
                 msge = args.splice(1, args.length).join(" ")
                 chnl = client.channels.get(channel).send(msge)
             }
