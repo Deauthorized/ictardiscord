@@ -12,7 +12,7 @@ module.exports = {
         var newschnCount = message.guild.channels.filter(m => m.type === 'news').size
         var strechnCount = message.guild.channels.filter(m => m.type === 'store').size
         var activeChannels = message.guild.channels.filter(m => m.typing === true).name
-        var banCount = message.guild.fetchBans().then(b => b).size
+        var banCount = message.guild.fetchBans().then(b => b.size = banCount)
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
             .setTitle(`Server Info`)
