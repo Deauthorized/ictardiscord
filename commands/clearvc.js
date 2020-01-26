@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'clearvc',
-	description: 'removes everyone from a specified voice channel',
+    description: 'removes everyone from a specified voice channel',
+    usage: '=clearvc <channel_id>',
 	async execute(message, args, client) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
