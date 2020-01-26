@@ -18,6 +18,8 @@ module.exports = {
             .addField('Server Owner', `${message.guild.owner.user.tag}`, true)
             .addField('Region', `${message.guild.region}`, true)
             .addField('Verified', `${message.guild.verified}`, true)
+            .addField('Roles', `${message.guild.roles.size}`, true)
+            .addField('Channels', `${message.guild.channels.size}`, true)
             .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdAt}`);
         message.channel.send(infoEmbed);
 	},
