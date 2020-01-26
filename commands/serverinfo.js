@@ -10,12 +10,14 @@ module.exports = {
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
             .setTitle(`Server Info`)
-            .setAuthor(`${message.guild.name}`, message.guild.iconURL, 'https://discord.js.org')
+            .setAuthor(`${message.guild.name} / ${message.guild.nameAcronym}`, message.guild.iconURL, 'https://discord.js.org')
             .addField('Members', `${message.guild.memberCount}`, true)
-            .addField('Member Presence', `${onlineCount + idleCount + dndCount} / ${message.guild.memberCount} are currently logged in. \n ${onlineCount} members are online \n${idleCount} members are AFK \n${dndCount} are on DND`, true)
+            .addField('Member Presence', `${onlineCount + idleCount + dndCount} / ${message.guild.memberCount} members are currently logged in. \n ${onlineCount} members are online \n${idleCount} members are AFK \n${dndCount} are DND`, true)
             .addField('Server Owner', `${message.guild.owner.user.tag}`, true)
             .addField('Region', `${message.guild.region}`, true)
-            .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdTimeStamp}`);
+            .addField('Partnered', `${message.guild.partnered}`, true)
+            .addField('Verified', `${message.guild.verified}`, true)
+            .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdTimestamp}`);
         message.channel.send(infoEmbed);
 	},
 };
