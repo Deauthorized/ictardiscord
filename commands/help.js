@@ -27,6 +27,7 @@ module.exports = {
                         help += `${element.usage}`
                     } 
                 });
+                if (help === "undefined"){help = "No usage info is specified yet"}
                 const helpEmbed = new Discord.RichEmbed()
                     .setColor('#8527ce')
                     .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
