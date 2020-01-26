@@ -13,6 +13,7 @@ module.exports = {
         var newschnCount = message.guild.channels.filter(m => m.type === 'news').size
         var strechnCount = message.guild.channels.filter(m => m.type === 'store').size
         var activeChannels = message.guild.channels.filter(m => m.typing === true).name
+        var serverdesc = "No description."
         // var banCount = message.guild.fetchBans().then(b => b).size
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
@@ -20,7 +21,7 @@ module.exports = {
             .setThumbnail(`${message.guild.iconURL}`)
             .addField('General Info', `:bust_in_silhouette: ${onlineCount + idleCount + dndCount} / ${message.guild.memberCount} members are currently logged in. \n<:online:670792653314588702> ${onlineCount} members are online \n<:idle:670792653251674122> ${idleCount} members are AFK \n<:dnd:670792653012729858> ${dndCount} members are DND \n <:offline:670792652861472840> ${offlineCount} members are offline `)
             .setAuthor(`${message.guild.name} / ${message.guild.nameAcronym}`, message.guild.iconURL, 'https://discord.js.org')
-            .addField('Server Description', `${message.guild.description}`)
+            .addField('Server Description', `${serverdesc}`)
             .addField('Members', `${message.guild.memberCount}`, true)
             .addField('Server Owner', `${message.guild.owner.user.tag}`, true)
             .addField('Region', `${message.guild.region}`, true)
