@@ -1,4 +1,4 @@
-const sleep = require('system-sleep');
+const pm = require('pm2');
 module.exports = {
 	name: 'restart',
 	description: 'restarts the bot',
@@ -10,8 +10,7 @@ module.exports = {
         else
         {
             await message.reply("Restarting.");
-            await client.user.setStatus('idle', 'brb');
-            process.exit();
+            pm.reload("ictar");
         }
 	},
 };
