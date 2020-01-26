@@ -45,7 +45,8 @@ client.settings = new Enmap
     autoFetch: true,
     cloneLevel: 'deep',
     polling: true,
-    pollingInterval: 60000
+    pollingInterval: 60000,
+    dataDir: __dirname + '/database'
 });
 const defaultSettings = 
 {
