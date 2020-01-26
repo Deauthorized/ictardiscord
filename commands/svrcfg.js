@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'svrcfg',
-    	description: 'server config command',
-    	usage: '=svrcfg <optional:set> <key> <value>',
+    description: 'server config command',
+    usage: '=svrcfg <optional:set> <key> <value>',
 	execute(message, args, client, botmaster, guildConf) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
@@ -22,7 +22,7 @@ module.exports = {
         {
             if (args[0] === "set")
             {
-                const [prop, ...value] = sargs;
+                const [prop, ...value] = args;
                 if(!client.settings.has(message.guild.id, prop)) {
                     return message.reply("Not a valid key.");
                   }
