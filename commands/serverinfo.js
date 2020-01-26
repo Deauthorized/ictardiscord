@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'serverinfo',
-    description: 'complex info about the server you\'re in',
-    usage: '=serverinfo',
-	execute(message, args, client) {
+    	description: 'complex info about the server you\'re in',
+    	usage: '=serverinfo',
+	execute(message, args, client, botmaster, guildConf) {
         var onlineCount = message.guild.members.filter(m => m.presence.status === 'online').size
         var offlineCount = message.guild.members.filter(m => m.presence.status === 'offline').size
         var idleCount = message.guild.members.filter(m => m.presence.status === 'idle').size
@@ -13,7 +13,7 @@ module.exports = {
         var newschnCount = message.guild.channels.filter(m => m.type === 'news').size
         var strechnCount = message.guild.channels.filter(m => m.type === 'store').size
         var activeChannels = message.guild.channels.filter(m => m.typing === true).name
-        var serverdesc = "No description."
+        var serverdesc = guildConf.guildDescription
         // var banCount = message.guild.fetchBans().then(b => b).size
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
