@@ -15,7 +15,8 @@ module.exports = {
                 .setColor('#8527ce')
                 .setTitle(`${message.guild.name} Config settings`)
                 .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
-                .addField('Server Description', `Current value: ${guildConf.guildDescription}`)
+                .addField('Server Description : guildDescription', `Current value: ${guildConf.guildDescription}`)
+            message.channel.send(cfgEmbed)
         }
         if (args.length > 0)
         {
