@@ -34,7 +34,7 @@ for (const file of eventFiles) {
     }
 }
 console.log("Loading config");
-const { prefix, botmaster } = require('./config.json');
+const { botmaster } = require('./config.json');
 console.log("Config loaded"
     + ("\n\nPrefix: " + prefix));
 console.log("Loading server specific settings, may take a bit.")
@@ -61,14 +61,14 @@ client.on('ready', () =>
     client.user.setPresence({ game: { name: `your consciousness to shard ${client.shard.id}`, type: "streaming", url: "https://www.twitch.tv/dashrava"}});
 })
 
-
 client.on('message', message =>
 {
+    const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
+    var prefix = guildConf.prefix
     if (!message.content.startsWith(prefix) || message.author.bot || client.user == message.author || !message.guild) return;
     const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
     if (!client.commands.has(command)) return;
-    const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
 
     try 
     {   
