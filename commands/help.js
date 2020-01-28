@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'help',
-    	description: 'gets current cmds',
-    	usage: '=help <optional:command>',
-	execute(message, args, client) {
+    description: 'gets current cmds',
+    usage: '=help <optional:command>',
+	execute(message, args, client, botmaster, guildConf) {
         if (args.length === 0)
         {
             help = String();
@@ -12,7 +12,7 @@ module.exports = {
                 .setTitle(`${client.commands.size} commands`)
                 .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
             client.commands.forEach(element => {
-                help += `\n=${element.name} - ${element.description}` 
+                help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
             });
             helpEmbed.addField("Commands", help);
             message.channel.send(helpEmbed);
@@ -26,7 +26,7 @@ module.exports = {
                 const helpEmbed = new Discord.RichEmbed()
                     .setColor('#8527ce')
                     .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
-                    .addField(`Usage for =${args[0]}`, `${help}`)
+                    .addField(`Usage for ${guildConf.prefix}${args[0]}`, `${help}`)
                 message.channel.send(helpEmbed);
             }
             else
