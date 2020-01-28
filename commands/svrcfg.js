@@ -15,7 +15,8 @@ module.exports = {
                 .setColor('#8527ce')
                 .setTitle(`${message.guild.name} Config settings`)
                 .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
-                .addField('guildDescription', `Current value: ${guildConf.guildDescription}`)
+                .addField('prefix', `Current value: \`${guildConf.prefix}\``)
+                .addField('guildDescription', `Current value: \`${guildConf.guildDescription}\``)
             message.channel.send(cfgEmbed)
         }
         if (args.length > 0)
@@ -28,7 +29,7 @@ module.exports = {
                     return message.reply("Not a valid key.");
                 }
                 client.settings.set(message.guild.id, value.join(" "), prop)
-                message.reply(`Successfully changed config: \`${prop}\``)
+                message.reply(`Successfully updated config: \`${prop}\``)
             }
         }
 	},
