@@ -35,8 +35,7 @@ for (const file of eventFiles) {
 }
 console.log("Loading config");
 const { botmaster } = require('./config.json');
-console.log("Config loaded"
-    + ("\n\nPrefix: " + prefix));
+console.log("Config loaded");
 console.log("Loading server specific settings, may take a bit.")
 client.settings = new Enmap
 ({
