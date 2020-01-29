@@ -20,16 +20,18 @@ module.exports = {
             message.channel.send(cfgEmbed)
         }
         if (args.length > 0)
-        {
-            if (args[0] === "set")
+        {   
+            switch (args[0])
             {
-                const [none, prop, ...value] = args;
-                if(!client.settings.has(message.guild.id, prop) || prop === undefined)
-                {
-                    return message.reply("Not a valid key.");
-                }
-                client.settings.set(message.guild.id, value.join(" "), prop)
-                message.reply(`Successfully updated config: \`${prop}\``)
+                case "set":
+                    const [none, prop, ...value] = args;
+                    if(!client.settings.has(message.guild.id, prop) || prop === undefined)
+                    {
+                        return message.reply("Not a valid key.");
+                    }
+                    client.settings.set(message.guild.id, value.join(" "), prop)
+                    message.reply(`Successfully updated config: \`${prop}\``)
+                    break;
             }
         }
 	},
