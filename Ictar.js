@@ -11,7 +11,7 @@ const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.end
 for (const file of commandFiles) {
     try
     {
-	const command = require(`./commands/${file}`);
+        const command = require(`./commands/${file}`);
         client.commands.set(command.name, command);
     }
     catch (error)
@@ -23,7 +23,7 @@ console.log("Loading events");
 for (const file of eventFiles) {
     try
     {
-	const command = require(`./events/${file}`);
+	    const command = require(`./events/${file}`);
         client.events.set(command.name, command);
         client.events.get(command.name).execute(client);
     }
