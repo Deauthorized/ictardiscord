@@ -77,6 +77,7 @@ client.on('message', message =>
         }
         else
         {
+            message.channel.startTyping();
             client.commands.get(command).execute(message, args, client, botmaster, guildConf);
         }
     }
