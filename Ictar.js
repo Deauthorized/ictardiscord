@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const db = require('better-sqlite3');
 const dbp = require('better-sqlite-pool');
 const Enmap = require("enmap");
 const client = new Discord.Client();
@@ -12,7 +11,7 @@ const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.end
 for (const file of commandFiles) {
     try
     {
-	    const command = require(`./commands/${file}`);
+	const command = require(`./commands/${file}`);
         client.commands.set(command.name, command);
     }
     catch (error)
@@ -24,7 +23,7 @@ console.log("Loading events");
 for (const file of eventFiles) {
     try
     {
-	    const command = require(`./events/${file}`);
+	const command = require(`./events/${file}`);
         client.events.set(command.name, command);
         client.events.get(command.name).execute(client);
     }
@@ -50,7 +49,7 @@ client.settings = new Enmap
 const defaultSettings = 
 {
     prefix: "=",
-    guildDescription: "A very cool discord server!"
+    guildDescription: "A very cool discord server!",
 }
 console.log("\nConnecting to discord...")
 client.on('ready', () => 
@@ -66,7 +65,7 @@ client.on('message', message =>
     var prefix = guildConf.prefix
     if (!message.content.startsWith(prefix) || message.author.bot || client.user == message.author || !message.guild) return;
     const args = message.content.slice(prefix.length).split(/ +/);
-	const command = args.shift().toLowerCase();
+    const command = args.shift().toLowerCase();
     if (!client.commands.has(command)) return;
 
     try 
