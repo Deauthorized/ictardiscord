@@ -8,7 +8,7 @@ module.exports = {
         var offlineCount = message.guild.members.filter(m => m.presence.status === 'offline').size
         var idleCount = message.guild.members.filter(m => m.presence.status === 'idle').size
         var dndCount = message.guild.members.filter(m => m.presence.status === 'dnd').size
-        var mobileCount = message.guild.members.filter(m => m.presence.status.clientStatus.mobile).size
+        var mobileCount = message.guild.members.filter(m => m.presence.clientStatus.mobile).size
         var txtchnCount = message.guild.channels.filter(m => m.type === 'text').size
         var voicechnCount = message.guild.channels.filter(m => m.type === 'voice').size
         var newschnCount = message.guild.channels.filter(m => m.type === 'news').size
