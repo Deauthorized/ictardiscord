@@ -8,12 +8,12 @@ module.exports = {
         {
             return message.reply("Not a valid member.")
         }
-        let user = message.mentions.users.first()
+        var usr = message.mentions.users.first()
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
             .setTitle(`User Info`)
-            .setThumbnail(`${user.avatarURL}`)
-            .setAuthor(`${message.user.username}`, message.user.avatarURL, 'https://discord.js.org')
+            .setThumbnail(`${usr.avatarURL}`)
+            .setAuthor(`${usr.username}`, usr.avatarURL, 'https://discord.js.org')
         message.channel.send(infoEmbed)
 	},
 };
