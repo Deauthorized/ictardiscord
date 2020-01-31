@@ -11,7 +11,7 @@ module.exports = {
         if (args.length === 0)
         {
             help = String();
-            const cfgEmbed = new Discord.RichEmbed()
+            const cfgEmbed = new Discord.MessageEmbed()
                 .setColor('#8527ce')
                 .setTitle(`${message.guild.name} Config settings`)
                 .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
