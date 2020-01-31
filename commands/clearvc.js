@@ -25,7 +25,7 @@ module.exports = {
                 {
                     toChannel.members.forEach(element =>
                     {
-                        element.setVoiceChannel(null);
+                        element.voice.setChannel(null);
                         discount += 1 
                     });
                 }
