@@ -31,7 +31,7 @@ module.exports = {
             .addField('Voice Channels', `${voicechnCount}`, true)
             .addField('News Channels', `${newschnCount}`, true)
             .addField('Store Channels', `${strechnCount}`, true)
-            .addField(`Emojis (${message.guild.emojis.size})`, message.guild.emojis.map(em => `<:${em.name}:${em.id}>`))
+            .addField(`Emojis (${message.guild.emojis.size})`, message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" "))
             .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdAt}`);
         message.channel.send(infoEmbed);
 	},
