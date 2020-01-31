@@ -7,7 +7,7 @@ module.exports = {
         if (args.length === 0)
         {
             help = String();
-            const helpEmbed = new Discord.RichEmbed()
+            const helpEmbed = new Discord.MessageEmbed()
                 .setColor('#8527ce')
                 .setTitle(`${client.commands.size} commands`)
                 .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
@@ -32,7 +32,7 @@ module.exports = {
             {
                 help = `${client.commands.get(args[0]).usage}`;
                 if (help === "undefined"){help = "No usage info is specified yet"}
-                const helpEmbed = new Discord.RichEmbed()
+                const helpEmbed = new Discord.MessageEmbed()
                     .setColor('#8527ce')
                     .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
                     .addField(`Usage for ${guildConf.prefix}${args[0]}`, `${help}`)
