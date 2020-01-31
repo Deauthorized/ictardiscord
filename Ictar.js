@@ -57,10 +57,10 @@ client.on('ready', () =>
 {
     console.log("Connected as " + client.user.tag)
 
-    client.user.setPresence({ game: { name: `your consciousness to shard ${client.shard.id}`, type: "streaming", url: "https://www.twitch.tv/dashrava"}});
+    client.user.setActivity({ game: { name: `your consciousness to shard ${client.shard.id}`, type: "streaming", url: "https://www.twitch.tv/dashrava"}});
 })
 
-client.on('message', message =>
+client.on('message', async message =>
 {
     if (!message.guild) return;
     const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
