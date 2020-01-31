@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'serverinfo',
+    name: 'serverinfo',
     description: 'complex info about the server you\'re in',
     usage: '=serverinfo',
 	execute(message, args, client, botmaster, guildConf) {
@@ -31,6 +31,7 @@ module.exports = {
             .addField('Voice Channels', `${voicechnCount}`, true)
             .addField('News Channels', `${newschnCount}`, true)
             .addField('Store Channels', `${strechnCount}`, true)
+            .addField(`Emojis (${message.guild.emojis.size})`, message.guild.emojis.map(em => `<:${em.name}:${em.id}>`))
             .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdAt}`);
         message.channel.send(infoEmbed);
 	},
