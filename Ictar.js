@@ -69,7 +69,7 @@ client.on('message', message =>
     const commandName = args.shift().toLowerCase();
     const command = client.commands.get(commandName);
 
-    if (!client.commands.has(command)) return;
+    if (!client.commands.has(commandName)) return;
 
     try 
     {   
