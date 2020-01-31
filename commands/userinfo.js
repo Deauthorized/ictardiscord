@@ -18,7 +18,7 @@ module.exports = {
             .addField('Tag', `<@${usr.id}>`, true)
             .addField('Register Date', usr.createdAt, true)
             .addField('Server Join Date', gldusr.joinedAt, true)
-            .addField('Roles', gldusr.roles.map(role => role.name))
+            .addField('Roles', gldusr.roles.map(role => `<@&${role.id}>, `))
         message.channel.send(infoEmbed)
 	},
 };
