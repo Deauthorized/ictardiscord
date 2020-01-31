@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'userinfo',
+    name: 'userinfo',
     description: 'get info about a specific user',
     usage: '=userinfo <mention>',
 	execute(message, args, client) {
@@ -18,7 +18,7 @@ module.exports = {
             .addField('Tag', `<@${usr.id}>`, true)
             .addField('Register Date', usr.createdAt, true)
             .addField('Server Join Date', gldusr.joinedAt, true)
-            .addField('Roles', gldusr.roles.map(role => `<@&${role.id}>, \\`))
+            .addField(`Roles (${gldusr.roles.size})`, gldusr.roles.map(role => `<@&${role.id}>`))
         message.channel.send(infoEmbed)
 	},
 };
