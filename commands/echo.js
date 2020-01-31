@@ -4,7 +4,7 @@ module.exports = {
     usage: "=echo <channel_id> <message>",
     perms: "ADMINISTRATOR",
 	execute(message, args, client) {
-        if (args[0] === undefined & args[1] === undefined)
+        if (args[0] === undefined || args[1] === undefined)
         {
             return message.reply("Missing arguments.")
         }
