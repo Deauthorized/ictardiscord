@@ -77,7 +77,7 @@ client.on('message', message =>
         {
             return message.reply("DM commands are not supported.");
         }
-        if (client.cooldowns.find(id => id === message.author.id))
+        if (client.cooldowns.has(message.author.id))
         {
             return message.reply("You're going too fast, please slow down.");
         }
