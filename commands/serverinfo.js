@@ -14,6 +14,14 @@ module.exports = {
         var strechnCount = message.guild.channels.filter(m => m.type === 'store').size
         var activeChannels = message.guild.channels.filter(m => m.typing === true).name
         var serverdesc = guildConf.guildDescription
+        if (message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" ").length > 1024)
+        {
+            emoteList = "Unavailable due to API limits"
+        }
+        else
+        {
+            emoteList = message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" ")
+        }
         // var banCount = message.guild.fetchBans().then(b => b).size
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
@@ -31,7 +39,7 @@ module.exports = {
             .addField('Voice Channels', `${voicechnCount}`, true)
             .addField('News Channels', `${newschnCount}`, true)
             .addField('Store Channels', `${strechnCount}`, true)
-            .addField(`Emojis (${message.guild.emojis.size})`, message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" "))
+            .addField(`Emojis (${message.guild.emojis.size})`, emoteList)
             .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdAt}`);
         message.channel.send(infoEmbed);
 	},
