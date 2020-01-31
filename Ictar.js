@@ -71,7 +71,6 @@ client.on('message', async message =>
     const command = client.commands.get(commandName);
 
     if (!client.commands.has(commandName)) return;
-
     try 
     {   
         if (message.channel.type == "dm")
@@ -82,7 +81,14 @@ client.on('message', async message =>
         {
             return message.reply("You're going too fast, please slow down.");
         }
-        command.execute(message, args, client, botmaster, guildConf);
+        if (message.guild.member(message.author).hasPermission(command.perms) || command.perms === undefined)
+        {
+            command.execute(message, args, client, botmaster, guildConf);
+        }
+        else
+        {
+            return message.reply(`You\'re missing the following permission: \`${command.perms}\``);
+        }
         client.cooldowns.set(message.author.id);
         setTimeout(() => client.cooldowns.delete(message.author.id), 3000);
     }
