@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'moveall',
-    	description: 'moves everyone to a single voice channel',
-    	usage: '=moveall <channel_id>',
+    description: 'moves everyone to a single voice channel',
+    usage: '=moveall <channel_id>',
 	async execute(message, args, client) {
         if (!message.member.hasPermission('ADMINISTRATOR', false, false))
         {
@@ -27,7 +27,7 @@ module.exports = {
                     {
                         element.members.forEach(element =>
                         {
-                            element.setVoiceChannel(toChannel);
+                            element.voice.setChannel(toChannel);
                             movecount += 1 
                         });
                     }
