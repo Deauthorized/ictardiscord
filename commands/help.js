@@ -19,7 +19,7 @@ module.exports = {
                 .then(() =>
                 {
                     if (message.channel.type === 'dm') return;
-                    message.react("<:i_:672696271257075753>");
+                    message.react("672696271257075753");
                 })
                 .catch(() =>
                 {
