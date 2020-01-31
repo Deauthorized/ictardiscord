@@ -5,6 +5,7 @@ const Enmap = require("enmap");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
+client.cooldowns = new Discord.Collection();
 console.log("Loading commands");
 const commandFiles = fs.readdirSync(__dirname + '/commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
@@ -65,19 +66,24 @@ client.on('message', message =>
     var prefix = guildConf.prefix
     if (!message.content.startsWith(prefix) || message.author.bot || client.user == message.author || !message.guild) return;
     const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+    const commandName = args.shift().toLowerCase();
+    const command = client.commands.get(commandName);
+
     if (!client.commands.has(command)) return;
 
     try 
     {   
         if (message.channel.type == "dm")
         {
-            message.reply("DM commands are not supported.")
+            return message.reply("DM commands are not supported.");
         }
-        else
+        if (client.cooldowns.find(id => id === message.author.id))
         {
-            client.commands.get(command).execute(message, args, client, botmaster, guildConf);
+            return message.reply("You're going too fast, please slow down.");
         }
+        command.execute(message, args, client, botmaster, guildConf);
+        client.cooldowns.set(message.author.id);
+        setTimeout(() => client.cooldowns.delete(message.author.id), 3000);
     }
     catch (error)
     {
