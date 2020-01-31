@@ -6,17 +6,20 @@ module.exports = {
 	execute(message, args, client) {
         if (message.mentions.users.first() === undefined)
         {
-            return message.reply("Not a valid member.")
+            if (message.guild.member(args[0]) & client.fetchUser(args[0]))
+            {
+                var usr = client.fetchUser(args[0])
+                var gldusr = message.guild.member(usr) 
+            }
         }
-        else if (message.guild.member(args[0]))
+        else if (message.mentions.users.first() !== undefined)
         {
-            var usr = client.fetchUser(args[0])
+            var usr = message.mentions.users.first()
             var gldusr = message.guild.member(usr)
         }
         else
         {
-            var usr = message.mentions.users.first()
-            var gldusr = message.guild.member(usr)
+            return message.reply("Not a valid user.");
         }
         const infoEmbed = new Discord.RichEmbed()
             .setColor('#8527ce')
