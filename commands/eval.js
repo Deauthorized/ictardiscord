@@ -1,4 +1,3 @@
-var _eval = require('eval');
 module.exports = {
 	name: 'eval',
 	description: 'basic eval command',
@@ -9,8 +8,8 @@ module.exports = {
         }
         else
         {   
-            var evald = _eval(message.content)
-            message.reply("```javascript\n" + evald + "\n```");
+            var evald = eval(args.join(" "));
+            message.reply(` \`\`\`${evald}\`\`\` `);
         };
-	},
+    },
 };
