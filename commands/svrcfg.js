@@ -1,13 +1,10 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'svrcfg',
+    name: 'svrcfg',
     description: 'server config command',
     usage: '=svrcfg <optional:set> <key> <value>',
+    perms: 'MANAGE_GUILD',
 	execute(message, args, client, botmaster, guildConf) {
-        if (!message.member.hasPermission('ADMINISTRATOR', false, false))
-        {
-            return message.reply("You can't do this.");
-        }
         if (args.length === 0)
         {
             help = String();
