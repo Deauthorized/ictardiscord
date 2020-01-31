@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'help',
+    name: 'help',
     description: 'gets current cmds',
     usage: '=help <optional:command>',
 	execute(message, args, client, botmaster, guildConf) {
@@ -15,7 +15,16 @@ module.exports = {
                 help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
             });
             helpEmbed.addField("Commands", help);
-            message.channel.send(helpEmbed);
+            message.author.send(helpEmbed)
+                .then(() =>
+                {
+                    if (message.channel.type === 'dm') return;
+                    message.react("<:i_:672696271257075753>");
+                })
+                .catch(() =>
+                {
+                    message.reply("Can't seem to DM you, do you have DM's enabled in any servers i'm in?")
+                })
         }
         if (args.length === 1)
         {
