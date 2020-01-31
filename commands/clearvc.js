@@ -1,36 +1,30 @@
 module.exports = {
-	name: 'clearvc',
+    name: 'clearvc',
     description: 'removes everyone from a specified voice channel',
     usage: '=clearvc <channel_id>',
+    perms: 'MOVE_MEMBERS',
 	async execute(message, args, client) {
-        if (!message.member.hasPermission('ADMINISTRATOR', false, false))
+        toChannel = client.channels.get(args[0]);
+        if (message.channel.guild !== toChannel.guild){
+            message.reply("Cross server commands are disallowed.");
+        }
+        else if (toChannel.type != "voice")
         {
-            message.reply("You can't do this.");
+            message.reply("Specified channel is not a voice channel")
         }
         else
-        {   
-            toChannel = client.channels.get(args[0]);
-            if (message.channel.guild !== toChannel.guild){
-                message.reply("Cross server commands are disallowed.");
-            }
-            else if (toChannel.type != "voice")
+        {
+            var discount = 0
+            msage = await message.reply(`Disconnecting all users in :speaker:${toChannel.name}`);
+            if (toChannel.type == "voice")
             {
-                message.reply("Specified channel is not a voice channel")
-            }
-            else
-            {
-                var discount = 0
-                msage = await message.reply(`Disconnecting all users in :speaker:${toChannel.name}`);
-                if (toChannel.type == "voice")
+                toChannel.members.forEach(element =>
                 {
-                    toChannel.members.forEach(element =>
-                    {
-                        element.voice.setChannel(null);
-                        discount += 1 
-                    });
-                }
-                await msage.edit(`<@${message.author.id}>, Disconnected ${discount} user(s) from :speaker:${toChannel.name}`);
+                    element.voice.setChannel(null);
+                    discount += 1 
+                });
             }
+            await msage.edit(`<@${message.author.id}>, Disconnected ${discount} user(s) from :speaker:${toChannel.name}`);
         }
 	},
 };
