@@ -57,7 +57,7 @@ client.on('ready', () =>
 {
     console.log("Connected as " + client.user.tag)
 
-    client.user.setActivity(`to shard ${client.shard.id}`, { url: 'https://twitch.tv/your/stream/here', type: 'STREAMING' });
+    client.user.setActivity(`your brain`, { url: 'https://twitch.tv/your/stream/here', type: 'STREAMING' });
 })
 
 client.on('message', async message =>
