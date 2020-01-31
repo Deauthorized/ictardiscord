@@ -6,11 +6,14 @@ module.exports = {
 	execute(message, args, client) {
         if (message.mentions.users.first() === undefined)
         {
-            return message.reply("Not a valid user.");
+            var usr = message.author
         }
-        var usr = message.mentions.users.first()
+        else
+        {
+            var usr = message.mentions.users.first()
+        }
         var gldusr = message.guild.member(usr)
-        const infoEmbed = new Discord.RichEmbed()
+        const infoEmbed = new Discord.MessageEmbed()
             .setColor('#8527ce')
             .setTitle(`User Info`)
             .setThumbnail(`${usr.avatarURL}`)
