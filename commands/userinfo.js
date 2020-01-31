@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'userinfo',
-    description: 'get info about a specific user (testing stage, probably wont work)',
+    description: 'get info about a specific user',
     usage: '=userinfo <mention>',
 	execute(message, args, client) {
         if (message.mentions.users.first() === undefined)
@@ -15,9 +15,10 @@ module.exports = {
             .setTitle(`User Info`)
             .setThumbnail(`${usr.avatarURL}`)
             .setAuthor(`${usr.username}`, usr.avatarURL, 'https://discord.js.org')
-            .addField('Tag', `<@${usr.id}>`)
-            .addField('Register Date', usr.createdAt)
-            .addField('Server Join Date', gldusr.joinedAt)
+            .addField('Tag', `<@${usr.id}>`, true)
+            .addField('Register Date', usr.createdAt, true)
+            .addField('Server Join Date', gldusr.joinedAt, true)
+            .addField('Roles', gldusr.roles.map(role => role.name))
         message.channel.send(infoEmbed)
 	},
 };
