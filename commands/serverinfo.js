@@ -16,14 +16,14 @@ module.exports = {
         var serverdesc = guildConf.guildDescription
         if (message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" ").length > 1024)
         {
-            emoteList = "Unavailable due to API limits"
+            emoteList = "Too many emojis"
         }
         else
         {
             emoteList = message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" ")
         }
         // var banCount = message.guild.fetchBans().then(b => b).size
-        const infoEmbed = new Discord.RichEmbed()
+        const infoEmbed = new Discord.MessageEmbed()
             .setColor('#8527ce')
             .setTitle(`Server Info`)
             .setThumbnail(`${message.guild.iconURL}`)
