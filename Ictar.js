@@ -62,6 +62,7 @@ client.on('ready', () =>
 
 client.on('message', message =>
 {
+    if (!message.guild) return;
     const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
     var prefix = guildConf.prefix
     if (!message.content.startsWith(prefix) || message.author.bot || client.user == message.author || !message.guild) return;
