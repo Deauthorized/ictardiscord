@@ -19,6 +19,7 @@ module.exports = {
             .addField('Register Date', usr.createdAt, true)
             .addField('Server Join Date', gldusr.joinedAt, true)
             .addField(`Roles (${gldusr.roles.size})`, gldusr.roles.map(role => `<@&${role.id}>`).join(" "))
+            .setFooter(`User ID: ${usr.id}`)
         message.channel.send(infoEmbed)
 	},
 };
