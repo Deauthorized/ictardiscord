@@ -10,7 +10,7 @@ module.exports = {
             const helpEmbed = new Discord.MessageEmbed()
                 .setColor('#8527ce')
                 .setTitle(`${client.commands.size} commands`)
-                .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
+                .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
             client.commands.forEach(element => {
                 help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
             });
@@ -34,7 +34,7 @@ module.exports = {
                 if (help === "undefined"){help = "No usage info is specified yet"}
                 const helpEmbed = new Discord.MessageEmbed()
                     .setColor('#8527ce')
-                    .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
+                    .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
                     .addField(`Usage for ${guildConf.prefix}${args[0]}`, `${help}`)
                 message.channel.send(helpEmbed);
             }
