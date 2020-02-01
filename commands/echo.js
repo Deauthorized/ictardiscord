@@ -15,7 +15,10 @@ module.exports = {
             }
             else
             {
-                if (args[0] == undefined){channel = message.channel}
+                if (!client.channels.get(channel).type === "text" || !client.channels.get(channel).type === "news")
+                {
+                    return message.reply("Specified channel is not valid")
+                }
                 msge = args.splice(1, args.length).join(" ")
                 chnl = client.channels.get(channel).send(msge)
                     .then(() => 
