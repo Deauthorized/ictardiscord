@@ -4,13 +4,24 @@ module.exports = {
     description: 'get info about a specific user',
     usage: '=userinfo <mention>',
 	execute(message, args, client) {
-        if (message.mentions.users.first() === undefined)
+        if (args[0] === undefined)
         {
             var usr = message.author
         }
-        else
+        else if (message.mentions.users.first())
         {
             var usr = message.mentions.users.first()
+        }
+        else if (!isNaN(args[0]))
+        {
+            try
+            {
+                var usr = message.guild.member(usr).user
+            }
+            catch (error)
+            {
+                return message.reply("Could not find a user with that userid.")
+            }
         }
         var gldusr = message.guild.member(usr)
         const infoEmbed = new Discord.MessageEmbed()
