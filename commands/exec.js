@@ -1,4 +1,4 @@
-const { promisify } = require('util');
+const { promisify, inspect } = require('util');
 var exec = promisify(require('child_process').exec);
 module.exports = {
 	name: 'exec',
@@ -17,9 +17,9 @@ module.exports = {
                     {
                         if (stderr)
                         {
-                            return message.reply(`\`\`\`${stderr}\`\`\``);
+                            return message.reply(`\`\`\`${inspect(stderr)}\`\`\``);
                         }
-                        message.reply(`\`\`\`${stdout}\`\`\``);
+                        message.reply(`\`\`\`${inspect(stdout)}\`\`\``);
                         message.channel.stopTyping();
                 }})
                 .catch((error) =>
