@@ -3,13 +3,13 @@ module.exports = {
     name: 'stats',
     description: 'bot stats',
     usage: '=stats',
-    execute(message, args, client) {
+    async execute(message, args, client) {
         const infoEmbed = new Discord.MessageEmbed()
         .setColor('#8527ce')
         .setTitle(`Ictar Stats`)
         .setThumbnail(`${client.user.avatarURL()}`)
         .setAuthor(`${client.user.tag}`, client.user.avatarURL(), 'https://discord.js.org')
-        client.shard.fetchClientValues('guilds.size')
+        await client.shard.fetchClientValues('guilds.size')
 	        .then(results => {
                 infoEmbed.addField('Servers', `${results.reduce((prev, guildCount) => prev + guildCount, 0)}`)
 	        })
