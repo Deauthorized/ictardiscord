@@ -17,9 +17,9 @@ module.exports = {
                     {
                         if (stderr)
                         {
-                            return message.reply(`\`\`\`${inspect(stderr)}\`\`\``);
+                            return message.reply(`\`\`\`${stderr.stderr}\`\`\``);
                         }
-                        message.reply(`\`\`\`${inspect(stdout)}\`\`\``);
+                        message.reply(`\`\`\`${stdout.stdout}\`\`\``);
                         message.channel.stopTyping();
                 }})
                 .catch((error) =>
