@@ -10,13 +10,14 @@ module.exports = {
         }
         else
         {   
+            message.channel.startTyping();
             exec(args.join(" "), (stdout, stderr) =>
             {
                 if (stderr)
                 {
                     return message.reply(`\`\`\`${stderr}\`\`\``);
                 }
-                await message.reply(`\`\`\`${stdout}\`\`\``);
+                message.reply(`\`\`\`${stdout}\`\`\``);
             });
         };
     },
