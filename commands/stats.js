@@ -12,18 +12,18 @@ module.exports = {
         await client.shard.fetchClientValues('guilds.size')
             .then(results =>
             {
-                infoEmbed.addField('Servers', `${results.reduce((prev, guildCount) => prev + guildCount, 0)}`, true)
+                infoEmbed.addField('Servers', `${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`, true)
             })
         await client.shard.fetchClientValues('users.size')
             .then(results =>
             {
-                infoEmbed.addField('Users', `${results.reduce((prev, usrCount) => prev + usrCount, 0)}`, true)
+                infoEmbed.addField('Users', `${results.reduce((prev, usrCount) => prev + usrCount, 0)} users`, true)
             })
 
         await client.shard.fetchClientValues('channels.size')
             .then(results =>
             {
-                infoEmbed.addField('Channels', `${results.reduce((prev, chnlCount) => prev + chnlCount, 0)}`, true)
+                infoEmbed.addField('Channels', `${results.reduce((prev, chnlCount) => prev + chnlCount, 0)} channels`, true)
             })
 
         message.channel.send(infoEmbed) 
