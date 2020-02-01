@@ -16,6 +16,10 @@ module.exports = {
         
                 return client.users.get(mention);
             }
+            else
+            {
+                return client.users.get(mention);
+            }
         }
         if (args[0] === undefined)
         {
@@ -26,6 +30,10 @@ module.exports = {
             var usr = getUserFromMention(args[0])
         }
         var gldusr = message.guild.member(usr)
+        if (usr === undefined)
+        {
+            return message.reply("Could not find specified user.")
+        }
         const infoEmbed = new Discord.MessageEmbed()
             .setColor('#8527ce')
             .setTitle(`User Info`)
