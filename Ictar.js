@@ -5,10 +5,12 @@ const Enmap = require("enmap");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
+client.functions = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 console.log("Loading commands");
 const commandFiles = fs.readdirSync(__dirname + '/commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
+const funcFiles = fs.readdirSync(__dirname + '/functions').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     try
     {
@@ -27,6 +29,18 @@ for (const file of eventFiles) {
 	    const command = require(`./events/${file}`);
         client.events.set(command.name, command);
         client.events.get(command.name).execute(client);
+    }
+    catch (error)
+    {
+        console.log(`ERROR: Failed to load ${file}!: ${error}`);
+    }
+}
+console.log("Loading functions");
+for (const file of funcFiles) {
+    try
+    {
+	    const command = require(`./functions/${file}`);
+        client.functions.set(command.name, command);
     }
     catch (error)
     {
