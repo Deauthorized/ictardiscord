@@ -14,13 +14,11 @@ module.exports = {
         }
         else if (!isNaN(args[0]))
         {
-            try
+
+            var usr = client.users.fetch(args[0])
+            if (!guild.member(usr))
             {
-                var usr = client.users.fetch(args[0])
-            }
-            catch (error)
-            {
-                return message.reply("Could not find a user with that userid.")
+                return message.reply("Couldn't find specified user.");
             }
         }
         var gldusr = message.guild.member(usr)
