@@ -10,9 +10,22 @@ module.exports = {
         .setThumbnail(`${client.user.avatarURL()}`)
         .setAuthor(`${client.user.tag}`, client.user.avatarURL(), 'https://discord.js.org')
         await client.shard.fetchClientValues('guilds.size')
-	        .then(results => {
-                infoEmbed.addField('Servers', `${results.reduce((prev, guildCount) => prev + guildCount, 0)}`)
-	        })
+            .then(results =>
+            {
+                infoEmbed.addField('Servers', `${results.reduce((prev, guildCount) => prev + guildCount, 0)}`, true)
+            })
+        await client.shard.fetchClientValues('users.size')
+            .then(results =>
+            {
+                infoEmbed.addField('Users', `${results.reduce((prev, usrCount) => prev + usrCount, 0)}`, true)
+            })
+
+        await client.shard.fetchClientValues('channels.size')
+            .then(results =>
+            {
+                infoEmbed.addField('Channels', `${results.reduce((prev, chnlCount) => prev + chnlCount, 0)}`, true)
+            })
+
         message.channel.send(infoEmbed) 
 	},
 };
