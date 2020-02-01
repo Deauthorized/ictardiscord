@@ -1,9 +1,9 @@
-const sleep = require('system-sleep');
+const Discord = require('discord.js');
 module.exports = {
-	name: 'stats',
+    name: 'stats',
     description: 'bot stats',
     usage: '=stats',
-	execute(message, args, client) {
+    execute(message, args, client) {
         const infoEmbed = new Discord.MessageEmbed()
         .setColor('#8527ce')
         .setTitle(`Ictar Stats`)
@@ -13,6 +13,6 @@ module.exports = {
 	        .then(results => {
                 infoEmbed.addField('Servers', `${results.reduce((prev, guildCount) => prev + guildCount, 0)}`)
 	        })
-    message.channel.send(infoEmbed) 
+        message.channel.send(infoEmbed) 
 	},
 };
