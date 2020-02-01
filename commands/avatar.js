@@ -16,7 +16,7 @@ module.exports = {
         const infoEmbed = new Discord.MessageEmbed()
             .setColor('#8527ce')
             .setTitle(`Avatar`)
-            .setAuthor(`${usr.username}`, usr.avatarURL(), 'https://discord.js.org')
+            .setAuthor(`${usr.username}`, usr.avatarURL(), usr.avatarURL())
             .setImage(usr.avatarURL())
         message.channel.send(infoEmbed)
 	},
