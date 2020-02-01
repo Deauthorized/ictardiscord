@@ -3,6 +3,7 @@ module.exports = {
     description: 'removes everyone from a specified voice channel',
     usage: '=clearvc <channel_id>',
     perms: 'MOVE_MEMBERS',
+    argsMin: 1,
 	async execute(message, args, client) {
         toChannel = client.channels.get(args[0]);
         if (message.channel.guild !== toChannel.guild){
