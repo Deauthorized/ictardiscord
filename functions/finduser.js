@@ -1,18 +1,21 @@
 module.exports = {
-	name: 'FindUser',
-	description: 'tries to find and return a user object via any method',
-	execute(client, guildArg, args) {
-        if (guildArg.members.filter(m => m.tag.includes(args[0])))
-        {
-            return m;
-		}
-		if (guildArg.members.filter(m => m.id.includes(args[0])))
-        {
-            return m;
-		}
-		else
+	name: 'parsemention',
+		getUserFromMention(mention, client)
 		{
-			return undefined;
-		}
-	},
+        if (!mention) return;
+        
+        if (mention.startsWith('<@') && mention.endsWith('>')) {
+            mention = mention.slice(2, -1);
+    
+            if (mention.startsWith('!')) {
+                mention = mention.slice(1);
+            }
+        
+            return client.users.get(mention);
+        }
+        else
+        {
+            return client.users.get(mention);
+        }
+    }
 };
