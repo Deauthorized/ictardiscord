@@ -10,10 +10,10 @@ module.exports = {
         }
         else
         {
-            var usr = client.functions.get("parsemention").getUserFromMention(args[0], client)
+            var usr = client.functions.get("parsemention").getUserFromMention(args[0], client);
         }
         var gldusr = message.guild.member(usr)
-        if (usr === undefined)
+        if (usr === undefined || gldusr === undefined)
         {
             return message.reply("Could not find specified user.")
         }
