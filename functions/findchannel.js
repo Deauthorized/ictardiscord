@@ -11,11 +11,11 @@ module.exports = {
                 chnl = chnl.slice(1);
             }
         
-            return client.channels.fetch(chnl);
+            return client.channels.get(chnl);
         }
         else
         {
-            return client.channels.fetch(chnl);
+            return client.channels.get(chnl);
         }
     }
 };
