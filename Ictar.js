@@ -71,7 +71,7 @@ client.on('ready', () =>
 {
     console.log("Connected as " + client.user.tag)
 
-    client.user.setActivity(`your brain`, { url: 'https://twitch.tv/your/stream/here', type: 'STREAMING' });
+    client.user.setActivity(`your brain`, { url: 'https://www.twitch.tv/dashrava', type: 'STREAMING' });
 })
 
 client.on('message', async message =>
@@ -97,7 +97,7 @@ client.on('message', async message =>
         }
         if (command.argsMin > args.length || !command.argsMin === undefined)
         {
-            return message.reply(`Too few arguments, the least required is ${command.argsMin}`)
+            return message.reply(`Too few arguments, the least required is \`${command.argsMin}\``)
         }
         if (message.guild.member(message.author).hasPermission(command.perms) || command.perms === undefined)
         {
