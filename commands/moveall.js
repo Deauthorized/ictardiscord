@@ -3,6 +3,7 @@ module.exports = {
     description: 'moves everyone to a single voice channel',
     usage: '=moveall <channel_id>',
     perms: 'MOVE_MEMBERS',
+    argsMin: 1,
 	async execute(message, args, client) {
         toChannel = client.channels.get(args[0]);
             if (message.channel.guild !== toChannel.guild){
