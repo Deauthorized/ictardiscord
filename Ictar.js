@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const dbp = require('better-sqlite-pool');
 const Enmap = require("enmap");
 const client = new Discord.Client();
+client.axon = require("axoncore");
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
