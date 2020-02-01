@@ -11,7 +11,7 @@ module.exports = {
             const cfgEmbed = new Discord.MessageEmbed()
                 .setColor('#8527ce')
                 .setTitle(`${message.guild.name} Config settings`)
-                .setAuthor('Ictar', client.user.avatarURL, 'https://discord.js.org')
+                .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
                 .addField('prefix', `Current value: \`${guildConf.prefix}\``)
                 .addField('guildDescription', `Current value: \`${guildConf.guildDescription}\``)
             message.channel.send(cfgEmbed)
