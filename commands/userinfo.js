@@ -21,7 +21,7 @@ module.exports = {
             .setColor('#8527ce')
             .setTitle(`User Info`)
             .setThumbnail(`${usr.avatarURL()}`)
-            .setAuthor(`${usr.username}`, usr.avatarURL(), 'https://discord.js.org')
+            .setAuthor(`${usr.tag}`, usr.avatarURL(), 'https://discord.js.org')
             .addField('Tag', `<@${usr.id}>`, true)
             .addField('Register Date', usr.createdAt, true)
             .addField('Server Join Date', gldusr.joinedAt, true)
