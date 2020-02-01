@@ -3,6 +3,7 @@ module.exports = {
     description: 'sets the channels slowmode value, use "off" to disable slowmode',
     usage: '=slowmode <int|off>',
     perms: 'MANAGE_CHANNELS',
+    argsMin: 1,
 	execute(message, args, client) {
         if (args[0] == "off")
             {
