@@ -1,23 +1,22 @@
 const Discord = require('discord.js');
-function getUserFromMention(mention) {
-	if (!mention) return;
-
-	if (mention.startsWith('<@') && mention.endsWith('>')) {
-		mention = mention.slice(2, -1);
-
-		if (mention.startsWith('!')) {
-			mention = mention.slice(1);
-		}
-
-		return client.users.get(mention);
-	}
-}
-
 module.exports = {
     name: 'userinfo',
     description: 'get info about a specific user',
     usage: '=userinfo <mention>',
 	execute(message, args, client) {
+        function getUserFromMention(mention) {
+            if (!mention) return;
+        
+            if (mention.startsWith('<@') && mention.endsWith('>')) {
+                mention = mention.slice(2, -1);
+        
+                if (mention.startsWith('!')) {
+                    mention = mention.slice(1);
+                }
+        
+                return client.users.get(mention);
+            }
+        }
         if (args[0] === undefined)
         {
             var usr = message.author
