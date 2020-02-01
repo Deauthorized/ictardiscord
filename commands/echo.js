@@ -5,29 +5,29 @@ module.exports = {
     perms: "ADMINISTRATOR",
     argsMin: 2,
 	execute(message, args, client) {
-        if (!client.channels.get(args[0]))
+        channl = client.functions.get("parsechannel").getChannelFromMention(args[0], client);
+        if (!channl)
         {
             return message.reply("Specified channel is not valid")
         }
-        channel = args[0]
-            if (message.channel.guild !== client.channels.get(channel).guild){
+            if (message.channel.guild !== channl.guild){
                 message.reply("You can't send messages across discord servers.")
             }
             else
             {
-                if (!client.channels.get(channel).type === "text" || !client.channels.get(channel).type === "news")
+                if (!channl.type === "text" || !channl.type === "news")
                 {
-                    return message.reply("Specified channel is not valid")
+                    return message.reply("Specified channel is not valid");
                 }
                 msge = args.splice(1, args.length).join(" ")
-                chnl = client.channels.get(channel).send(msge)
+                chnl = channl.send(msge)
                     .then(() => 
                     {
-                        message.reply(`Sent \`${msge}\` to \`#${client.channels.get(channel).name}\``)
+                        message.reply(`Sent \`${msge}\` to \`#${channl.name}\``)
                     })
                     .catch(() =>
                     {
-                        message.reply(`Failed to echo to channel #${client.channels.get(channel)}`)
+                        message.reply(`Failed to echo to channel #${channl.name}`)
                     })
             }
 	},
