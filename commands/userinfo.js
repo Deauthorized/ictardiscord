@@ -12,11 +12,6 @@ module.exports = {
         {
             var usr = message.mentions.users.first()
         }
-        else if (!isNaN(args[0]))
-        {
-
-            var usr = client.users.fetch(args[0])
-        }
         var gldusr = message.guild.member(usr)
         const infoEmbed = new Discord.MessageEmbed()
             .setColor('#8527ce')
