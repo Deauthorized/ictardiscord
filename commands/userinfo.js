@@ -1,4 +1,18 @@
 const Discord = require('discord.js');
+function getUserFromMention(mention) {
+	if (!mention) return;
+
+	if (mention.startsWith('<@') && mention.endsWith('>')) {
+		mention = mention.slice(2, -1);
+
+		if (mention.startsWith('!')) {
+			mention = mention.slice(1);
+		}
+
+		return client.users.get(mention);
+	}
+}
+
 module.exports = {
     name: 'userinfo',
     description: 'get info about a specific user',
@@ -8,9 +22,9 @@ module.exports = {
         {
             var usr = message.author
         }
-        else if (message.mentions.users.first())
+        else
         {
-            var usr = message.mentions.users.first()
+            var usr = getUserFromMention(args[0])
         }
         var gldusr = message.guild.member(usr)
         const infoEmbed = new Discord.MessageEmbed()
