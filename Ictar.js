@@ -81,7 +81,7 @@ client.on('message', async message =>
         {
             return message.reply("You're going too fast, please slow down.");
         }
-        if (command.argsMin > args.length || command.argsMin === undefined)
+        if (command.argsMin > args.length || !command.argsMin === undefined)
         {
             return message.reply(`Too few arguments, the least required is ${command.argsMin}`)
         }
