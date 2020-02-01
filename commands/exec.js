@@ -11,14 +11,22 @@ module.exports = {
         else
         {   
             message.channel.startTyping();
-            exec(args.join(" "), (stdout, stderr) =>
-            {
-                if (stderr)
+            exec(args.join(" "))
+                .then((stdout, stderr) =>
                 {
-                    return message.reply(`\`\`\`${stderr}\`\`\``);
-                }
-                message.reply(`\`\`\`${stdout}\`\`\``);
-            });
+                    {
+                        if (stderr)
+                        {
+                            return message.reply(`\`\`\`${stderr}\`\`\``);
+                        }
+                        message.reply(`\`\`\`${stdout}\`\`\``);
+                        message.channel.stopTyping();
+                }})
+                .catch((error) =>
+                {
+                    message.reply(`Failed to execute terminal command. \n \`\`\`${error}\`\`\``)
+                    message.channel.stopTyping();
+                })
         };
     },
 };
