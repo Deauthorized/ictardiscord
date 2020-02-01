@@ -1,7 +1,7 @@
 module.exports = {
-	name: 'parsemention',
-		getUserFromMention(mention, client)
-		{
+    name: 'parsemention',
+        getUserFromMention(mention, client)
+        {
         if (!mention) return;
         
         if (mention.startsWith('<@') && mention.endsWith('>')) {
