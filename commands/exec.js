@@ -12,14 +12,14 @@ module.exports = {
         {   
             message.channel.startTyping();
             exec(args.join(" "))
-                .then((stdout, stderr) =>
+                .then((error, stdout, stderr) =>
                 {
                     {
                         if (stderr)
                         {
                             return message.reply(`\`\`\`${stderr}\`\`\``);
                         }
-                        message.reply(`\`\`\`${stdout}\`\`\``);
+                        message.reply(`\`\`\`${stdout.values()}\`\`\``);
                         message.channel.stopTyping();
                 }})
                 .catch((error) =>
