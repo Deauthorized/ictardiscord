@@ -16,10 +16,6 @@ module.exports = {
         {
 
             var usr = client.users.fetch(args[0])
-            if (!message.guild.member(usr))
-            {
-                return message.reply("Couldn't find specified user.");
-            }
         }
         var gldusr = message.guild.member(usr)
         const infoEmbed = new Discord.MessageEmbed()
