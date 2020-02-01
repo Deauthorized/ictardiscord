@@ -1,4 +1,4 @@
-const findusr = require("./Desktop/ictar/ictardiscord/functions/finduser.js")
+const findusr = require(`/Desktop/ictar/ictardiscord/functions/finduser.js`)
 module.exports = {
 	name: 'eval',
 	description: 'basic eval command',
