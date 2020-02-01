@@ -12,7 +12,7 @@ module.exports = {
         {   
             message.channel.startTyping();
             exec(args.join(" "))
-                .then((error, stdout, stderr) =>
+                .then((stdout, stderr) =>
                 {
                     {
                         if (stderr)
