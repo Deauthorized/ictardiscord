@@ -99,7 +99,7 @@ client.on('message', async message =>
         {
             return message.reply(`Too few arguments, the least required is \`${command.argsMin}\``)
         }
-        if (message.guild.member(message.author).hasPermission(command.perms) || !command.perms === undefined)
+        if (!message.guild.member(message.author).hasPermission(command.perms) || !command.perms === undefined)
         {
             return message.reply(`You\'re missing the following permission: \`${command.perms}\``);
         }
