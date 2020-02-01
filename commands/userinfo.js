@@ -13,9 +13,9 @@ module.exports = {
             var usr = client.functions.get("parsemention").getUserFromMention(args[0], client);
         }
         var gldusr = message.guild.member(usr)
-        if (usr === undefined || gldusr === undefined)
+        if (usr === null || gldusr === null)
         {
-            return message.reply("Could not find specified user.")
+            return message.reply("Could not find specified user.");
         }
         const infoEmbed = new Discord.MessageEmbed()
             .setColor('#8527ce')
