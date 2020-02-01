@@ -5,6 +5,10 @@ module.exports = {
     perms: "ADMINISTRATOR",
     argsMin: 2,
 	execute(message, args, client) {
+        if (!client.channels.get(args[0]))
+        {
+            return message.reply("Specified channel is not valid")
+        }
         channel = args[0]
             if (message.channel.guild !== client.channels.get(channel).guild){
                 message.reply("You can't send messages across discord servers.")
