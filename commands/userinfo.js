@@ -16,7 +16,7 @@ module.exports = {
         {
 
             var usr = client.users.fetch(args[0])
-            if (!guild.member(usr))
+            if (!message.guild.member(usr))
             {
                 return message.reply("Couldn't find specified user.");
             }
