@@ -6,7 +6,7 @@ module.exports = {
     argsMin: 2,
 	execute(message, args, client) {
         channl = client.functions.get("parsechannel").getChannelFromMention(args[0], client);
-        if (!channel)
+        if (!channl)
         {
             return message.reply("Specified channel is not valid")
         }
