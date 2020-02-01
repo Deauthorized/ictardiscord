@@ -71,7 +71,7 @@ client.on('ready', () =>
 {
     console.log("Connected as " + client.user.tag)
 
-    client.user.setActivity(`=help | shard ${client.shard.id}`, { url: 'https://www.twitch.tv/dashrava', type: 'STREAMING' });
+    client.user.setActivity(`=help`, { url: 'https://www.twitch.tv/dashrava', type: 'STREAMING' });
 })
 
 client.on('message', async message =>
