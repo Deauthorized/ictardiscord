@@ -16,7 +16,7 @@ module.exports = {
         {
             try
             {
-                var usr = message.guild.member(usr).user
+                var usr = client.users.fetch(args[0])
             }
             catch (error)
             {
