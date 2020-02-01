@@ -18,6 +18,14 @@ module.exports = {
                 if (args[0] == undefined){channel = message.channel}
                 msge = args.splice(1, args.length).join(" ")
                 chnl = client.channels.get(channel).send(msge)
+                    .then(() => 
+                    {
+                        message.reply(`Sent \`${msge}\` to \`#${client.channels.get(channel).name}\``)
+                    })
+                    .catch(() =>
+                    {
+                        message.reply(`Failed to echo to channel #${client.channels.get(channel)}`)
+                    })
             }
 	},
 };
