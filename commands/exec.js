@@ -19,7 +19,7 @@ module.exports = {
                         {
                             return message.reply(`\`\`\`${stderr.stderr}\`\`\``);
                         }
-                        message.reply(`\`\`\`${stdout.stdout}\`\`\``);
+                        message.reply(`\`\`\`${stdout.stdout}\`\`\``, split=true);
                         message.channel.stopTyping();
                 }})
                 .catch((error) =>
