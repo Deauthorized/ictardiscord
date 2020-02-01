@@ -17,14 +17,14 @@ module.exports = {
                     {
                         if (stderr)
                         {
-                            return message.reply(`\`\`\`${stderr.stderr}\`\`\``, { split: true });
+                            return message.reply(`${stderr.stderr}`, { split: true, code: true });
                         }
-                        message.reply(`\`\`\`${stdout.stdout}\`\`\``, { split: true });
+                        message.reply(`${stdout.stdout}`, { split: true, code: true });
                         message.channel.stopTyping();
                 }})
                 .catch((error) =>
                 {
-                    message.reply(`Failed to execute terminal command. \n \`\`\`${error}\`\`\``, { split: true })
+                    message.reply(`Failed to execute terminal command. \n ${error}`, { split: true, code: true })
                     message.channel.stopTyping();
                 })
         };
