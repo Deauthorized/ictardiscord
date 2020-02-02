@@ -4,6 +4,7 @@ module.exports = {
     usage: '=moveall <channel_id>',
     perms: 'MOVE_MEMBERS',
     argsMin: 1,
+    category: 'moderation',
 	async execute(message, args, client) {
         toChannel = client.channels.get(args[0]);
             if (message.channel.guild !== toChannel.guild){

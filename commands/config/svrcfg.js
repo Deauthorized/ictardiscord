@@ -4,6 +4,7 @@ module.exports = {
     description: 'server config command',
     usage: '=svrcfg <optional:set> <key> <value>',
     perms: 'MANAGE_GUILD',
+    category: 'config',
 	execute(message, args, client, botmaster, guildConf) {
         if (args.length === 0)
         {

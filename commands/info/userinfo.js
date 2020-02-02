@@ -3,6 +3,7 @@ module.exports = {
     name: 'userinfo',
     description: 'get info about a specific user',
     usage: '=userinfo <mention>',
+    category: 'info',
 	execute(message, args, client) {
         if (args[0] === undefined)
         {

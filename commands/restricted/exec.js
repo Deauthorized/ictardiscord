@@ -2,7 +2,8 @@ const { promisify, inspect } = require('util');
 var exec = promisify(require('child_process').exec);
 module.exports = {
 	name: 'exec',
-	description: 'executes a linux command, and no you **cant** do this',
+    description: 'executes a linux command, and no you **cant** do this',
+    category: 'restricted',
 	async execute(message, args, client, botmaster) {
         if (parseInt(message.author.id) !== botmaster)
         {

@@ -3,6 +3,7 @@ module.exports = {
     name: 'stats',
     description: 'bot stats',
     usage: '=stats',
+    category: 'info',
     async execute(message, args, client) {
         const infoEmbed = new Discord.MessageEmbed()
         .setColor('#8527ce')

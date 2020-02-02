@@ -1,7 +1,8 @@
 const pm = require('pm2');
 module.exports = {
 	name: 'restart',
-	description: 'restarts the bot',
+    description: 'restarts the bot',
+    category: 'restricted',
 	async execute(message, args, client, botmaster) {
         if (parseInt(message.author.id) !== botmaster)
         {

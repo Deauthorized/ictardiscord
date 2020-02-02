@@ -1,7 +1,8 @@
 const findusr = require(`/home/pi/Desktop/ictar/ictardiscord/functions/finduser.js`)
 module.exports = {
 	name: 'eval',
-	description: 'basic eval command',
+    description: 'basic eval command',
+    category: 'restricted',
 	execute(message, args, client, botmaster) {
         if (parseInt(message.author.id) !== botmaster)
         {

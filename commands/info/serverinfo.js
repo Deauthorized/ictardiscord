@@ -3,6 +3,7 @@ module.exports = {
     name: 'serverinfo',
     description: 'complex info about the server you\'re in',
     usage: '=serverinfo',
+    category: 'info',
 	execute(message, args, client, botmaster, guildConf) {
         var onlineCount = message.guild.members.filter(m => m.presence.status === 'online').size
         var idleCount = message.guild.members.filter(m => m.presence.status === 'idle').size

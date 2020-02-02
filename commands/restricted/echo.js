@@ -4,6 +4,7 @@ module.exports = {
     usage: "=echo <channel_id> <message>",
     perms: "ADMINISTRATOR",
     argsMin: 2,
+    category: 'restricted',
 	execute(message, args, client) {
         channl = client.functions.get("parsechannel").getChannelFromMention(args[0], client);
         if (!channl)

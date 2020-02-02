@@ -3,6 +3,7 @@ module.exports = {
     name: 'avatar',
     description: 'get a users avatar',
     usage: '=avatar <mention>',
+    category: 'info',
 	execute(message, args, client) {
         if (args[0] === undefined)
         {

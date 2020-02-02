@@ -4,6 +4,7 @@ module.exports = {
     usage: '=slowmode <int|off>',
     perms: 'MANAGE_CHANNELS',
     argsMin: 1,
+    category: 'moderation',
 	execute(message, args, client) {
         if (args[0] == "off")
             {
