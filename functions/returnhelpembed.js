@@ -14,7 +14,7 @@ module.exports = {
                     h.forEach(element => {
                         help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
                     });
-                    helpEmbed.addField(i.charAt(0).toUpperCase() + i.slice(1), help);
+                    helpEmbed.addField(i, help);
                 }
             return helpEmbed;
         }
