@@ -10,13 +10,10 @@ module.exports = {
                 .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
                 for (const i of client.categories)
                 {
-                    console.log(i)
-                    if (i[1] === undefined){return;}
-                    h = client.commands.filter(element => element.category === i)
+                    h = client.commands.filter(element => element.category === i[0])
                     h.forEach(element => {
                         help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
                     });
-                    helpEmbed.addField(i, help);
                 }
             return helpEmbed;
         }
