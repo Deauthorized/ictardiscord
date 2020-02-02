@@ -11,7 +11,8 @@ module.exports = {
                 client.commands.forEach(element =>
                 {
                     help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
-            });
+                });
+                helpEmbed.addField('Commands', help)
             return helpEmbed;
         }
 };
