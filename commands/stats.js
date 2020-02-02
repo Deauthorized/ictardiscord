@@ -1,16 +1,16 @@
 const Discord = require('discord.js');
 const pm2 = require("pm2");
-const promises = 
-[
-    client.shard.fetchClientValues('guilds.size'),
-    client.shard.fetchClientValues('users.size'),
-    client.shard.fetchClientValues('channels.size')
-]
 module.exports = {
     name: 'stats',
     description: 'bot stats',
     usage: '=stats',
     async execute(message, args, client) {
+        const promises = 
+        [
+            client.shard.fetchClientValues('guilds.size'),
+            client.shard.fetchClientValues('users.size'),
+            client.shard.fetchClientValues('channels.size')
+        ]
         const infoEmbed = new Discord.MessageEmbed()
         .setColor('#8527ce')
         .setTitle(`Ictar Stats`)
