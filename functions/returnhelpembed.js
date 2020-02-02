@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
     name: 'helpembed',
-        get(client)
+        get(client, guildConf)
         {
             help = String();
             const helpEmbed = new Discord.MessageEmbed()
