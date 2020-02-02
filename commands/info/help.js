@@ -7,7 +7,7 @@ module.exports = {
 	execute(message, args, client, botmaster, guildConf) {
         if (args.length === 0)
         {
-            helpEmbed = client.functions.get("helpembed").get(client);
+            helpEmbed = client.functions.get("helpembed").get(client, guildConf);
             message.author.send(helpEmbed)
                 .then(() =>
                 {
