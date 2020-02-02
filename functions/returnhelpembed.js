@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
     name: 'helpembed',
-        get(client)
+        get(client, guildConf)
         {
             help = String();
             const helpEmbed = new Discord.MessageEmbed()
@@ -11,6 +11,6 @@ module.exports = {
                 client.commands.forEach(element => {
                     helpEmbed.addField(element.category, `\n${guildConf.prefix}${element.name} - ${element.description}`)
                 });
-            return helpEmbed
+            return helpEmbed;
         }
 };
