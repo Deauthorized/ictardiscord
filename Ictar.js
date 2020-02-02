@@ -64,7 +64,7 @@ console.log("\nConnecting to discord...")
 client.on('ready', () => 
 {
     console.log("Connected as " + client.user.tag)
-    client.user.setActivity(`=help`, { url: 'https://www.twitch.tv/dashrava', type: 'STREAMING' });
+    client.user.setActivity(`=help | shard ${client.shard.ids}`, { url: 'https://www.twitch.tv/dashrava', type: 'STREAMING' });
     process.send('ready');
 })
 
