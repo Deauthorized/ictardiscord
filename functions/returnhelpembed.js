@@ -10,6 +10,7 @@ module.exports = {
                 .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
                 for (const i of client.categories)
                 {
+                    console.log(i)
                     h = client.commands.filter(element => element.category === i)
                     h.forEach(element => {
                         help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
