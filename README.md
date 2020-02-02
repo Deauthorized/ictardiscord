@@ -1,2 +1,2 @@
 # ictardiscord
-page what for discord bot yes
+ictar is a bot that runs on discord that does things and maybe even stuff
