@@ -13,7 +13,7 @@ const funcFiles = fs.readdirSync(__dirname + '/functions').filter(file => file.e
 for (const folder of commandDir) {
     try
     {
-        var fileArray = fs.readdirSync(__dirname + `/${folder}`).filter(file => file.endsWith('.js'))
+        var fileArray = fs.readdirSync(__dirname + `/commands/${folder}`).filter(file => file.endsWith('.js'))
         for (var cmd of fileArray)
         {
             const command = require(`./${folder}/${cmd}`)
@@ -22,7 +22,7 @@ for (const folder of commandDir) {
     }
     catch (error)
     {
-        console.log(`ERROR: Failed to load ${cmd}!: ${error}`);
+        console.log(`ERROR: Failed to load ${folder}!: ${error}`);
     }
 }
 for (const file of eventFiles) {
