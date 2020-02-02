@@ -21,7 +21,7 @@ for (const folder of commandDir) {
             client.commands.set(command.name, command);
             if (!client.categories.has(folder))
             {
-                client.categories.set(command.name, folder)
+                client.categories.set(folder)
             }
         }
     }
