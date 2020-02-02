@@ -3,18 +3,11 @@ module.exports = {
     name: 'help',
     description: 'gets current cmds',
     usage: '=help <optional:command>',
+    category: 'info',
 	execute(message, args, client, botmaster, guildConf) {
         if (args.length === 0)
         {
-            help = String();
-            const helpEmbed = new Discord.MessageEmbed()
-                .setColor('#8527ce')
-                .setTitle(`${client.commands.size} commands`)
-                .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
-            client.commands.forEach(element => {
-                help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
-            });
-            helpEmbed.addField("Commands", help);
+            helpEmbed = client.functions.get("helpembed").get(client);
             message.author.send(helpEmbed)
                 .then(() =>
                 {
