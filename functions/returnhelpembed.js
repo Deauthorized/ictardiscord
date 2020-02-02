@@ -9,7 +9,8 @@ module.exports = {
                 .setTitle(`${client.commands.size} commands`)
                 .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
                 for (const i of client.categories)
-                {
+                {   
+                    help = "";
                     h = client.commands.filter(element => element.category === i[0])
                     h.forEach(element => {
                         help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
