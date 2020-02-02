@@ -14,6 +14,7 @@ module.exports = {
                     h.forEach(element => {
                         help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
                     });
+                    helpEmbed.addField(i, help)
                 }
             return helpEmbed;
         }
