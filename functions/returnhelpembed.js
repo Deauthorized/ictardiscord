@@ -8,11 +8,17 @@ module.exports = {
                 .setColor('#8527ce')
                 .setTitle(`${client.commands.size} commands`)
                 .setAuthor('Ictar', client.user.avatarURL(), 'https://discord.js.org')
-                client.commands.forEach(element =>
+                for (const i of client.categories)
                 {
-                    help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
-                });
-                helpEmbed.addField('Commands', help)
+                    for (const x of client.commands)
+                    {
+                        if (x.category === i[0])
+                        {
+                            console.log(`${x.name} is in category ${i[0]}`)
+                        }
+                        console.log(`${x.name} may be in category ${i[0]}`)
+                    }
+                }
             return helpEmbed;
         }
 };
