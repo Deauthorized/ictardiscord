@@ -19,7 +19,7 @@ for (const folder of commandDir) {
         {
             const command = require(__dirname + `/commands/${folder}/${cmd}`)
             client.commands.set(command.name, command);
-            client.categories.set(command, folder);
+            client.categories.set(folder, command);
         }
     }
     catch (error)
