@@ -7,18 +7,22 @@ client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 client.functions = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
-const commandFiles = fs.readdirSync(__dirname + '/commands').filter(file => file.endsWith('.js'));
+const commandDir = fs.readdirSync(__dirname + '/commands').filter(file => file.isDirectory());
 const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
 const funcFiles = fs.readdirSync(__dirname + '/functions').filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
+for (const folder of commandDir) {
     try
     {
-        const command = require(`./commands/${file}`);
-        client.commands.set(command.name, command);
+        var fileArray = fs.readdirSync(__dirname + `/${folder}`).filter(file => file.endsWith('.js'))
+        for (var cmd of fileArray)
+        {
+            const command = require(`./${folder}/${cmd}`)
+            client.commands.set(command.name, command);
+        }
     }
     catch (error)
     {
-        console.log(`ERROR: Failed to load ${file}!: ${error}`);
+        console.log(`ERROR: Failed to load ${cmd}!: ${error}`);
     }
 }
 for (const file of eventFiles) {
