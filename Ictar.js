@@ -7,7 +7,7 @@ client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 client.functions = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
-const commandDir = fs.readdirSync(__dirname + '/commands').filter(file => file.isDirectory());
+const commandDir = fs.readdirSync(__dirname + '/commands')
 const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
 const funcFiles = fs.readdirSync(__dirname + '/functions').filter(file => file.endsWith('.js'));
 for (const folder of commandDir) {
