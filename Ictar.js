@@ -7,7 +7,6 @@ client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 client.functions = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
-console.log("Loading commands");
 const commandFiles = fs.readdirSync(__dirname + '/commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
 const funcFiles = fs.readdirSync(__dirname + '/functions').filter(file => file.endsWith('.js'));
@@ -22,7 +21,6 @@ for (const file of commandFiles) {
         console.log(`ERROR: Failed to load ${file}!: ${error}`);
     }
 }
-console.log("Loading events");
 for (const file of eventFiles) {
     try
     {
@@ -35,7 +33,6 @@ for (const file of eventFiles) {
         console.log(`ERROR: Failed to load ${file}!: ${error}`);
     }
 }
-console.log("Loading functions");
 for (const file of funcFiles) {
     try
     {
@@ -47,10 +44,7 @@ for (const file of funcFiles) {
         console.log(`ERROR: Failed to load ${file}!: ${error}`);
     }
 }
-console.log("Loading config");
 const { botmaster } = require('./config.json');
-console.log("Config loaded");
-console.log("Loading server specific settings, may take a bit.")
 client.settings = new Enmap
 ({
     name: "settings",
@@ -70,8 +64,8 @@ console.log("\nConnecting to discord...")
 client.on('ready', () => 
 {
     console.log("Connected as " + client.user.tag)
-
     client.user.setActivity(`=help`, { url: 'https://www.twitch.tv/dashrava', type: 'STREAMING' });
+    process.send('ready');
 })
 
 client.on('message', async message =>
