@@ -11,18 +11,16 @@ client.categories = new Discord.Collection();
 const commandDir = fs.readdirSync(__dirname + '/commands')
 const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
 const funcFiles = fs.readdirSync(__dirname + '/functions').filter(file => file.endsWith('.js'));
+
 for (const folder of commandDir) {
     try
     {
+        client.categories.set(folder)
         var fileArray = fs.readdirSync(__dirname + `/commands/${folder}`).filter(file => file.endsWith('.js'))
         for (var cmd of fileArray)
         {
             const command = require(__dirname + `/commands/${folder}/${cmd}`)
             client.commands.set(command.name, command);
-            if (!client.categories.has(folder))
-            {
-                client.categories.set(folder)
-            }
         }
     }
     catch (error)
@@ -101,6 +99,10 @@ client.on('message', async message =>
         if (command.argsMin > args.length || !command.argsMin === undefined)
         {
             return message.reply(`Too few arguments, the least required is \`${command.argsMin}\``)
+        }
+        if (command.nsfw === true && message.channel.nsfw === false)
+        {
+            return message.reply("This command is restricted to NSFW channels only.")
         }
         if (!message.guild.member(message.author).hasPermission(command.perms) || !command.perms === undefined)
         {
