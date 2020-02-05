@@ -1,8 +1,9 @@
 const rq = require('request');
 module.exports = {
     name: 'rule34',
-        get(client, guildConf)
+        get(query)
         {
-            return "coming soon";
+            query = query.replace(" ", "+")
+            return query;
         }
 };
