@@ -13,9 +13,9 @@ module.exports = {
                     help = "";
                     h = client.commands.filter(element => element.category === i[0])
                     h.forEach(element => {
-                        help += `\n     ${guildConf.prefix}${element.name} - ${element.description}` 
+                        help += `\n${guildConf.prefix}${element.name} - ${element.description}` 
                     });
-                    helpEmbed.addField(`${i} (${h.size})`, help)
+                    helpEmbed.addField(i, help)
                 }
             return helpEmbed;
         }
