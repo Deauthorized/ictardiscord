@@ -21,8 +21,9 @@ module.exports = {
                 {
                     return "API_DOWN";
                 }
-                for (i.toString() of blacklistedtags)
+                for (i of blacklistedtags)
                 {
+                    i.toString()
                     if (b[0].tags.some(i))
                     {
                         return "BLACKLISTED_TAG";
