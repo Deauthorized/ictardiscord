@@ -1,15 +1,4 @@
 const rq = require('request');
-const blacklistedtags = 
-[
-    "cub",
-    "loli",
-    "lolicon",
-    "shota",
-    "shotacon",
-    "guro",
-    "gore",
-    "underage"
-]
 module.exports = {
     name: 'rule34',
         get(query)
@@ -23,8 +12,7 @@ module.exports = {
                 }
                 for (i of blacklistedtags)
                 {
-                    i.toString()
-                    if (b[0].tags.some(i))
+                    if (b[0].tags.some("loli") || b[0].tags.some("shota") || b[0].tags.some("guro"))
                     {
                         return "BLACKLISTED_TAG";
                     }
