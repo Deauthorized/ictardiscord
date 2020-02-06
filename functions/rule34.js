@@ -28,7 +28,7 @@ module.exports = {
                         return "BLACKLISTED_TAG";
                     }
                 }
-                return body;
+                return body[0];
             })
         }
 };
