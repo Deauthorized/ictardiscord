@@ -3,7 +3,9 @@ const blacklistedtags =
 [
     "cub",
     "loli",
+    "lolicon",
     "shota",
+    "shotacon",
     "guro",
     "gore",
     "underage"
@@ -15,8 +17,17 @@ module.exports = {
             query = query.replace(" ", "+")
             rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,b) =>
             {
-                console.log(b[0].score)
-                return r.statusCode;
+                if (body === undefined)
+                {
+                    return "API_DOWN";
+                }
+                for (i of blacklistedtags)
+                {
+                    if (i[0].tags.some(i))
+                    {
+                        return "BLACKLISTED_TAG";
+                    }
+                }
             })
         }
 };
