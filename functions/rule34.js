@@ -17,7 +17,7 @@ module.exports = {
             query = query.replace(" ", "+")
             rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
-                if (err) { return console.log(err); }
+                if (e) { return console.log(e); }
                 if (body === "[]")
                 {
                     return "API_DOWN";
