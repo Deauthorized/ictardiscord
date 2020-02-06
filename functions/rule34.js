@@ -21,13 +21,14 @@ module.exports = {
                 {
                     return "API_DOWN";
                 }
-                for (i of blacklistedtags)
+                for (i.toString() of blacklistedtags)
                 {
                     if (b[0].tags.some(i))
                     {
                         return "BLACKLISTED_TAG";
                     }
                 }
+                return b;
             })
         }
 };
