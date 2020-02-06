@@ -10,12 +10,9 @@ module.exports = {
                 {
                     return "API_DOWN";
                 }
-                for (i of blacklistedtags)
+                if (b[0].tags.some("loli") || b[0].tags.some("shota") || b[0].tags.some("guro"))
                 {
-                    if (b[0].tags.some("loli") || b[0].tags.some("shota") || b[0].tags.some("guro"))
-                    {
-                        return "BLACKLISTED_TAG";
-                    }
+                    return "BLACKLISTED_TAG";
                 }
                 return b;
             })
