@@ -14,9 +14,10 @@ module.exports = {
     name: 'rule34',
         get(query)
         {
-            rq.get(`https://r34-json-api.herokuapp.com/posts?limit=5&tags=${query}`, {json: true}, (e, r, body) =>
+            query = query.replace(" ", "+")
+            rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
-                if (!body.tags)
+                if (body === "[]")
                 {
                     return "API_DOWN";
                 }
