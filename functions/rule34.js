@@ -1,5 +1,4 @@
-const { promisify } = require('util');
-const rq = promisify(require('request'));
+const rq = require('request');
 const blacklistedtags = 
 [
     "cub",
@@ -14,10 +13,9 @@ module.exports = {
         get(query)
         {
             query = query.replace(" ", "+")
-            rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json:true})
-                .then(function(e,r,b)
-                {
-                    return r.statusCode
-                })
+            rq.get(`https://r34-json-api.herokuapp.com/posts?limit=10&tags=${query}`, {json:true}, function(e,r,b)
+            {
+                return r.statusCode;
+            })
         }
 };
