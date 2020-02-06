@@ -23,7 +23,7 @@ module.exports = {
                 for (i of blacklistedtags)
                 {
                     console.log(body)
-                    if (body[0].tags.some(i))
+                    if (body[0].tags.includes(i))
                     {
                         return "BLACKLISTED_TAG";
                     }
