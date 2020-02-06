@@ -23,7 +23,7 @@ module.exports = {
                 }
                 for (i of blacklistedtags)
                 {
-                    if (i[0].tags.some(i))
+                    if (b[0].tags.some(i))
                     {
                         return "BLACKLISTED_TAG";
                     }
