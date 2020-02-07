@@ -9,8 +9,7 @@ const blacklistedtags =
     "shotacon",
     "guro",
     "gore",
-    "underage",
-    "test"
+    "underage"
 ]
 module.exports = {
     name: 'r34',
@@ -30,7 +29,7 @@ module.exports = {
                         if (body[0].tags.includes(i) || query.includes(i))
                         {
                             message.channel.stopTyping();
-                            return message.channel.send(":warning: Requested post has content which is a violation of discords TOS, it will not be shown.")
+                            return message.channel.send(":warning: `In order to comply with discords guidelines regarding NSFW content, this post will not be shown.`")
                         }
                     }
                     const nsfwEmbed = new Discord.MessageEmbed()
