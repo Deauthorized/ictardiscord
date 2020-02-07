@@ -38,7 +38,7 @@ module.exports = {
                 const nsfwEmbed = new Discord.MessageEmbed()
                     .setColor('#8527ce')
                     .setTitle(`rule34.xxx | score: ${body[0].score}`)
-                    .setImage(body[0].file_url({ dynamic: true, size:1024 }))
+                    .setImage(body[0].file_url)
                 message.channel.stopTyping();
                 message.channel.send(nsfwEmbed)
             })
