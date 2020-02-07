@@ -9,7 +9,8 @@ const blacklistedtags =
     "shotacon",
     "guro",
     "gore",
-    "underage"
+    "underage",
+    "ictar-testBlacklist"
 ]
 module.exports = {
     name: 'r34',
@@ -39,6 +40,7 @@ module.exports = {
                     .setColor('#8527ce')
                     .setTitle(`rule34.xxx | score: ${body[0].score}`)
                     .setImage(body[0].file_url)
+                    .setFooter(`Post URL: ${body[0].source} | Creation date: ${body[0].created_at}`)
                 message.channel.stopTyping();
                 message.channel.send(nsfwEmbed)
             })
