@@ -13,7 +13,8 @@ const blacklistedtags =
     "zoophilia",
     "pedophilia",
     "zoophile",
-    "pedophile"
+    "pedophile",
+    "rape"
 ]
 module.exports = {
     name: 'r34',
