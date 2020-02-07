@@ -9,8 +9,7 @@ const blacklistedtags =
     "shotacon",
     "guro",
     "gore",
-    "underage",
-    "test"
+    "underage"
 ]
 module.exports = {
     name: 'r34',
@@ -21,7 +20,7 @@ module.exports = {
 	execute(message, args, client) {
         var query = args.join(" ")
         message.channel.startTyping();
-        rq.get(`https://r34-json-api.herokuapp.com/posts?limit=10&tags=${query}`, {json: true}, (e,r,body) =>
+        rq.get(`https://r34-json-api.herokuapp.com/posts?limit=100&tags=${query}`, {json: true}, (e,r,body) =>
             {
                 try{
                     var nsfwPost = body[Math.floor(Math.random() * body.length)]
