@@ -9,7 +9,11 @@ const blacklistedtags =
     "shotacon",
     "guro",
     "gore",
-    "underage"
+    "underage",
+    "zoophilia",
+    "pedophilia",
+    "zoophile",
+    "pedophile"
 ]
 module.exports = {
     name: 'r34',
