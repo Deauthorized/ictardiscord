@@ -24,7 +24,7 @@ module.exports = {
         rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
                 if (e) { return console.log(e); }
-                if (body[0].indexOf(query) === -1)
+                if (body.indexOf(query) === -1)
                 {
                     message.channel.stopTyping();
                     return message.channel.send(`No results found for \`${query}\``);
