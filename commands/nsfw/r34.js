@@ -34,7 +34,7 @@ module.exports = {
                         if (nsfwPost.tags.includes(i) || query.includes(i))
                         {
                             message.channel.stopTyping();
-                            return message.channel.send(":warning: `In order to comply with discords guidelines regarding NSFW content, this post will not be shown.`")
+                            return message.channel.send(`:warning: \`In order to comply with discords guidelines regarding NSFW content, this post will not be shown.\` \n \`Tag matched: ${i}\``)
                         }
                     }
                     const nsfwEmbed = new Discord.MessageEmbed()
