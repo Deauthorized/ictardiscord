@@ -24,7 +24,7 @@ module.exports = {
         rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
                 if (e) { return console.log(e); }
-                if (!Array.isArray(body))
+                if (body.toString() === "[]")
                 {
                     message.channel.stopTyping();
                     return message.channel.send(`No results found for \`${query}\``);
@@ -41,7 +41,7 @@ module.exports = {
                     .setColor('#8527ce')
                     .setTitle(`rule34.xxx | score: ${body[0].score}`)
                     .setImage(body[0].file_url)
-                    .setFooter(`Post URL: ${body[0].source} | Creation date: ${body[0].created_at}`)
+                    .setFooter(`Post URL: ${body[0].source}`)
                 message.channel.stopTyping();
                 message.channel.send(nsfwEmbed)
             })
