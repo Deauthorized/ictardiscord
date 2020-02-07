@@ -27,7 +27,7 @@ module.exports = {
                     if (e) { return console.log(e); }
                     for (i of blacklistedtags)
                     {
-                        if (body[0].indexOf(i) === -1 || query.indexOf(i) === -1)
+                        if (body[0].tags.includes(i) || query.includes(i))
                         {
                             message.channel.stopTyping();
                             return message.channel.send(":warning: Requested post has content which is a violation of discords TOS, it will not be shown.")
