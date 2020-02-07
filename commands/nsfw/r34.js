@@ -24,14 +24,16 @@ module.exports = {
         rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
                 if (e) { return console.log(e); }
-                if (!body.includes(query))
+                if (!body.includes("tags"))
                 {
+                    message.channel.stopTyping();
                     return message.channel.send(`No results found for \`${query}\``);
                 }
                 for (i of blacklistedtags)
                 {
                     if (body[0].tags.includes(i) || query.includes(i))
                     {
+                        message.channel.stopTyping();
                         return message.channel.send(":warning: Requested post has content which is a violation of discords TOS, it will not be shown.")
                     }
                 }
