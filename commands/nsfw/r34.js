@@ -17,6 +17,7 @@ module.exports = {
     category: 'nsfw',
     nsfw: true,
 	execute(message, args, client) {
+        var query = args.join(" ").replace(" ", "+")
         rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
                 if (e) { return console.log(e); }
