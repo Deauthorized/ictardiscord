@@ -18,10 +18,14 @@ module.exports = {
     category: 'nsfw',
     nsfw: true,
 	execute(message, args, client) {
-        var query = args.join(" ").replace(" ", "+")
+        var query = args.join(" ")
         rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
                 if (e) { return console.log(e); }
+                if (body === undefined)
+                {
+                    message.channel.send(`No results found for \`${query}\``)
+                }
                 for (i of blacklistedtags)
                 {
                     if (body[0].tags.includes(i))
