@@ -1,4 +1,5 @@
 const rq = require('request');
+const Discord = require('discord.js');
 const blacklistedtags = 
 [
     "cub",
@@ -11,7 +12,7 @@ const blacklistedtags =
     "underage"
 ]
 module.exports = {
-	name: 'r34',
+    name: 'r34',
     description: 'retrieve a post from rule34',
     usage: '=nsfw <query>',
     category: 'nsfw',
