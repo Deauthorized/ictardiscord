@@ -19,10 +19,12 @@ module.exports = {
     nsfw: true,
 	execute(message, args, client) {
         var query = args.join(" ")
+        message.channel.startTyping();
         rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
+                console.log(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`)
                 if (e) { return console.log(e); }
-                if (body === undefined)
+                if (body[0] === undefined)
                 {
                     message.channel.send(`No results found for \`${query}\``)
                 }
@@ -35,8 +37,9 @@ module.exports = {
                 }
                 const nsfwEmbed = new Discord.MessageEmbed()
                     .setColor('#8527ce')
-                    .setTitle(`rule34.xxx | score: ${rq[0].score}`)
-                    .setImage(rq[0].file_url({ dynamic: true, size:1024 }))
+                    .setTitle(`rule34.xxx | score: ${body[0].score}`)
+                    .setImage(body[0].file_url({ dynamic: true, size:1024 }))
+                message.channel.stopTyping();
                 message.channel.send(nsfwEmbed)
             })
 	},
