@@ -24,9 +24,9 @@ module.exports = {
         rq.get(`https://r34-json-api.herokuapp.com/posts?limit=1&tags=${query}`, {json: true}, (e,r,body) =>
             {
                 if (e) { return console.log(e); }
-                if (!body[0])
+                if (!body.includes(query))
                 {
-                    message.channel.send(`No results found for \`${query}\``)
+                    return message.channel.send(`No results found for \`${query}\``);
                 }
                 for (i of blacklistedtags)
                 {
