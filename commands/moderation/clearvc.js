@@ -6,7 +6,7 @@ module.exports = {
     argsMin: 1,
     category: 'moderation',
 	async execute(message, args, client) {
-        toChannel = client.channels.get(args[0]);
+        toChannel = client.channels.cache.get(args[0]);
         if (message.channel.guild !== toChannel.guild){
             message.reply("Cross server commands are disallowed.");
         }
