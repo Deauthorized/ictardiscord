@@ -3,3 +3,4 @@ const manager = new ShardingManager(__dirname + '/Ictar.js', { token: process.en
 
 
 manager.spawn();
+console.log(process.env.TOKEN);
