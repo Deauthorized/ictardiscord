@@ -18,7 +18,7 @@ module.exports = {
             {
                 var movecount = 0
                 msage = await message.reply(`Moving everyone to :speaker:${toChannel.name}`);
-                message.guild.channels.forEach(element =>
+                message.guild.channels.cache.forEach(element =>
                 {
                     if (element.type == "voice")
                     {
