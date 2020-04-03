@@ -5,15 +5,15 @@ module.exports = {
     usage: '=serverinfo',
     category: 'info',
 	execute(message, args, client, botmaster, guildConf) {
-        var onlineCount = message.guild.members.filter(m => m.presence.status === 'online').size
-        var idleCount = message.guild.members.filter(m => m.presence.status === 'idle').size
-        var dndCount = message.guild.members.filter(m => m.presence.status === 'dnd').size
+        var onlineCount = message.guild.members.cache.filter(m => m.presence.status === 'online').size
+        var idleCount = message.guild.members.cache.filter(m => m.presence.status === 'idle').size
+        var dndCount = message.guild.members.cache.filter(m => m.presence.status === 'dnd').size
         var offlineCount = message.guild.memberCount - onlineCount - idleCount - dndCount
-        var txtchnCount = message.guild.channels.filter(m => m.type === 'text').size
-        var voicechnCount = message.guild.channels.filter(m => m.type === 'voice').size
-        var newschnCount = message.guild.channels.filter(m => m.type === 'news').size
-        var strechnCount = message.guild.channels.filter(m => m.type === 'store').size
-        var activeChannels = message.guild.channels.filter(m => m.typing === true).name
+        var txtchnCount = message.guild.channels.cache.filter(m => m.type === 'text').size
+        var voicechnCount = message.guild.channels.cache.filter(m => m.type === 'voice').size
+        var newschnCount = message.guild.channels.cache.filter(m => m.type === 'news').size
+        var strechnCount = message.guild.channels.cache.filter(m => m.type === 'store').size
+        var activeChannels = message.guild.channels.cache.filter(m => m.typing === true).name
         var serverdesc = guildConf.guildDescription
         if (message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" ").length > 1024)
         {
