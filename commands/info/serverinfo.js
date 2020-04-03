@@ -35,12 +35,12 @@ module.exports = {
             .addField('Server Owner', `${message.guild.owner.user.tag}`, true)
             .addField('Region', `${message.guild.region}`, true)
             .addField('Verified', `${message.guild.verified}`, true)
-            .addField('Roles', `${message.guild.roles.size}`, true)
+            .addField('Roles', `${message.guild.roles.cache.size}`, true)
             .addField('Text Channels', `${txtchnCount}`, true)
             .addField('Voice Channels', `${voicechnCount}`, true)
             .addField('News Channels', `${newschnCount}`, true)
             .addField('Store Channels', `${strechnCount}`, true)
-            .addField(`Emojis (${message.guild.emojis.size})`, emoteList)
+            .addField(`Emojis (${message.guild.emojis.cache.size})`, emoteList)
             .setFooter(`Server ID: ${message.guild.id} - DOB: ${message.guild.createdAt}`);
         message.channel.send(infoEmbed);
 	},
