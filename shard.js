@@ -3,4 +3,4 @@ const manager = new ShardingManager(__dirname + '/Ictar.js', { token: process.en
 
 
 manager.spawn();
-manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));
+console.log(`Launched shard ${shard.id}`);
