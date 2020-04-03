@@ -15,13 +15,13 @@ module.exports = {
         var strechnCount = message.guild.channels.cache.filter(m => m.type === 'store').size
         var activeChannels = message.guild.channels.cache.filter(m => m.typing === true).name
         var serverdesc = guildConf.guildDescription
-        if (message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" ").length > 1024)
+        if (message.guild.emojis.cache.map(em => `<:${em.name}:${em.id}>`).join(" ").length > 1024)
         {
             emoteList = "Too many emojis"
         }
         else
         {
-            emoteList = message.guild.emojis.map(em => `<:${em.name}:${em.id}>`).join(" ")
+            emoteList = message.guild.emojis.cache.map(em => `<:${em.name}:${em.id}>`).join(" ")
         }
         // var banCount = message.guild.fetchBans().then(b => b).size
         const infoEmbed = new Discord.MessageEmbed()
