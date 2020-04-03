@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const dbp = require('better-sqlite-pool');
 const Enmap = require("enmap");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
