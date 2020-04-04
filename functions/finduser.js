@@ -11,11 +11,11 @@ module.exports = {
                 mention = mention.slice(1);
             }
         
-            return client.users.get(mention);
+            return client.users.cache.get(mention);
         }
         else
         {
-            return client.users.get(mention);
+            return client.users.cache.get(mention);
         }
     }
 };
